@@ -68,9 +68,9 @@ module.exports = {
 					Editor.Ipc.sendToAll("asset-db:asset-changed", {
 						type: i.assetType(),
 						uuid: i.uuid
-					}), Editor.Ipc.sendToAll("scene:saved");
+					}), Editor.Ipc.sendToAll("flow:saved");
 				}) : Editor.assetdb.create( s, t, function( e, t ) {
-					return e ? void Editor.assetdb.error("Failed to create asset %s, messages: %s", s, e.stack ) : (_setCurrentScene( t[ 0 ].uuid ), Editor.Ipc.sendToAll("asset-db:assets-created", t ), void Editor.Ipc.sendToAll("scene:saved"));
+					return e ? void Editor.assetdb.error("Failed to create asset %s, messages: %s", s, e.stack ) : (_setCurrentScene( t[ 0 ].uuid ), Editor.Ipc.sendToAll("asset-db:assets-created", t ), void Editor.Ipc.sendToAll("flow:saved"));
 				});
 			}
 		},

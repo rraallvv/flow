@@ -26,7 +26,7 @@
 			}
 		},
 		created: function() {
-			this._viewReady = !1, this._ipcList = [], this._copyingIds = null, this._pastingId = "", console.time("scene:reloading"), Editor.Ipc.sendToAll("scene:reloading");
+			this._viewReady = !1, this._ipcList = [], this._copyingIds = null, this._pastingId = "", console.time("flow:reloading"), Editor.Ipc.sendToAll("flow:reloading");
 		},
 		run: function( e ) {
 			var n = this;
@@ -136,7 +136,7 @@
 			_Scene.EngineEvents.register();
 		},
 		_onSceneViewReady: function() {
-			this._viewReady = !0, this.$.loader.hidden = !0, _Scene.Undo.clear(), Editor.Ipc.sendToAll("scene:ready"), console.timeEnd("scene:reloading");
+			this._viewReady = !0, this.$.loader.hidden = !0, _Scene.Undo.clear(), Editor.Ipc.sendToAll("flow:ready"), console.timeEnd("flow:reloading");
 		},
 		_onSceneViewInitError: function( e ) {
 			var n = e.args[ 0 ];
@@ -144,13 +144,13 @@
 		},
 		_loadScene: function( e ) {
 			var n = this;
-			this.$.loader.hidden = !1, Editor.Ipc.sendToAll("scene:reloading"), _Scene.loadSceneByUuid( e, function( e ) {
+			this.$.loader.hidden = !1, Editor.Ipc.sendToAll("flow:reloading"), _Scene.loadSceneByUuid( e, function( e ) {
 				return e ? void n.fire("scene-view-init-error", e ) : void n.fire("scene-view-ready");
 			});
 		},
 		_newScene: function() {
 			var e = this;
-			this.$.loader.hidden = !1, Editor.Ipc.sendToAll("scene:reloading"), _Scene.newScene(function() {
+			this.$.loader.hidden = !1, Editor.Ipc.sendToAll("flow:reloading"), _Scene.newScene(function() {
 				e.fire("scene-view-ready");
 			});
 		},
@@ -193,13 +193,13 @@
 			"editor:project-profile-updated": function( e, n ) {
 				_Scene.projectProfileUpdated( n );
 			},
-			"scene:query-group-list": function( e ) {
+			"flow:query-group-list": function( e ) {
 				e.reply && e.reply( null, cc.game.groupList );
 			},
-			"scene:is-ready": function( e ) {
+			"flow:is-ready": function( e ) {
 				e.reply( null, this._viewReady );
 			},
-			"scene:new-scene": function() {
+			"flow:new-scene": function() {
 				var e = this,
 					n = this.confirmCloseScene();
 				switch ( n ) {
@@ -213,22 +213,22 @@
 						return void this._newScene();
 				}
 			},
-			"scene:play-on-device": function() {
+			"flow:play-on-device": function() {
 				_Scene.stashScene(function() {
 					Editor.Ipc.sendToMain("app:play-on-device");
 				});
 			},
-			"scene:reload-on-device": function() {
+			"flow:reload-on-device": function() {
 				_Scene.stashScene(function() {
 					Editor.Ipc.sendToMain("app:reload-on-device");
 				});
 			},
-			"scene:preview-server-scene-stashed": function() {
+			"flow:preview-server-scene-stashed": function() {
 				_Scene.stashScene(function() {
 					Editor.Ipc.sendToMain("app:preview-server-scene-stashed");
 				});
 			},
-			"scene:query-hierarchy": function( e ) {
+			"flow:query-hierarchy": function( e ) {
 				if ( !cc.engine.isInitialized ) {
 					return void e.reply( null, "", []);
 				}
@@ -236,7 +236,7 @@
 					c = _Scene.currentScene().uuid;
 				e.reply( null, c, n );
 			},
-			"scene:query-nodes-by-comp-name": function( e, n ) {
+			"flow:query-nodes-by-comp-name": function( e, n ) {
 				var c = cc.director.getScene(),
 					t = [],
 					o = cc.js.getClassByName( n );
@@ -244,15 +244,15 @@
 					e.getComponent( o ) && t.push( e.uuid );
 				}), e.reply( null, t );
 			},
-			"scene:query-node": function( e, n, c ) {
+			"flow:query-node": function( e, n, c ) {
 				if ( e.reply ) {
 					var t = _Scene.dumpNode( n );
 					return t = JSON.stringify( t ), void e.reply( null, t );
 				}
 				var o = _Scene.dumpNode( c );
-				o = JSON.stringify( o ), Editor.Ipc.sendToWins("scene:reply-query-node", n, o );
+				o = JSON.stringify( o ), Editor.Ipc.sendToWins("flow:reply-query-node", n, o );
 			},
-			"scene:query-node-info": function( e, n, c ) {
+			"flow:query-node-info": function( e, n, c ) {
 				var t = null,
 					o = cc.engine.getInstanceById( n );
 				o && (t = o instanceof cc.Component ? o.node : o);
@@ -264,26 +264,26 @@
 					compID: i ? i.uuid : null
 				});
 			},
-			"scene:query-node-functions": function( e, n ) {
+			"flow:query-node-functions": function( e, n ) {
 				var c = cc.engine.getInstanceById( n ),
 					t = Editor.getNodeFunctions( c );
 				e.reply( null, t );
 			},
-			"scene:query-animation-node": function( e, n ) {
+			"flow:query-animation-node": function( e, n ) {
 				var c = _Scene.AnimUtils.getAnimationNodeDump( n );
 				e.reply( null, c );
 			},
-			"scene:is-child-class-of": function( e, n, c ) {
+			"flow:is-child-class-of": function( e, n, c ) {
 				var t = cc.js._getClassById( n ),
 					o = cc.js._getClassById( c ),
 					i = cc.isChildClassOf( t, o );
 				e.reply( null, i );
 			},
-			"scene:reset-node": function( e, n ) {
+			"flow:reset-node": function( e, n ) {
 				var c = cc.engine.getInstanceById( n );
 				c && (_Scene.Undo.recordNode( c.uuid, "Reset Node"), _Scene.resetNode( c ), _Scene.Undo.commit());
 			},
-			"scene:reset-all": function( e, n ) {
+			"flow:reset-all": function( e, n ) {
 				var c = cc.engine.getInstanceById( n );
 				if ( c ) {
 					_Scene.Undo.recordNode( c.uuid, "Reset All"), _Scene.resetNode( c );
@@ -293,31 +293,31 @@
 					_Scene.Undo.commit();
 				}
 			},
-			"scene:new-property": function( e, n ) {
+			"flow:new-property": function( e, n ) {
 				_Scene.newProperty( n.id, n.path, n.type );
 			},
-			"scene:reset-property": function( e, n ) {
+			"flow:reset-property": function( e, n ) {
 				_Scene.resetProperty( n.id, n.path, n.type );
 			},
-			"scene:set-property": function( e, n ) {
+			"flow:set-property": function( e, n ) {
 				_Scene.setProperty( n );
 			},
-			"scene:has-copied-component": function( e ) {
+			"flow:has-copied-component": function( e ) {
 				var n = !1,
 					c = _Scene.clipboard.data;
 				c instanceof cc.Component && (n = !0), e.reply( null, n );
 			},
-			"scene:add-component": function( e, n, c ) {
+			"flow:add-component": function( e, n, c ) {
 				Editor.Ipc.sendToMain("metrics:track-event", {
 					category: "Scene",
 					action: "Component Add",
 					label: c
 				}), _Scene.addComponent( n, c );
 			},
-			"scene:remove-component": function( e, n, c ) {
+			"flow:remove-component": function( e, n, c ) {
 				_Scene.removeComponent( n, c );
 			},
-			"scene:move-up-component": function( e, n, c ) {
+			"flow:move-up-component": function( e, n, c ) {
 				var t = cc.engine.getInstanceById( n ),
 					o = cc.engine.getInstanceById( c );
 				if ( t && o ) {
@@ -328,7 +328,7 @@
 					}
 				}
 			},
-			"scene:move-down-component": function( e, n, c ) {
+			"flow:move-down-component": function( e, n, c ) {
 				var t = cc.engine.getInstanceById( n ),
 					o = cc.engine.getInstanceById( c );
 				if ( t && o ) {
@@ -339,129 +339,129 @@
 					}
 				}
 			},
-			"scene:reset-component": function( e, n, c ) {
+			"flow:reset-component": function( e, n, c ) {
 				var t = cc.engine.getInstanceById( c );
 				t && (_Scene.Undo.recordNode( n, "Reset Component"), _Scene.resetComponent( t ), _Scene.Undo.commit());
 			},
-			"scene:copy-component": function( e, n ) {
+			"flow:copy-component": function( e, n ) {
 				_Scene.copyComponent( n );
 			},
-			"scene:paste-component": function( e, n ) {
+			"flow:paste-component": function( e, n ) {
 				_Scene.pasteComponent( n );
 			},
-			"scene:create-nodes-by-uuids": function( e, n, c, t ) {
+			"flow:create-nodes-by-uuids": function( e, n, c, t ) {
 				_Scene.createNodes( n, c, t );
 			},
-			"scene:create-node-by-classid": function( e, n, c, t, o ) {
+			"flow:create-node-by-classid": function( e, n, c, t, o ) {
 				Editor.Ipc.sendToMain("metrics:track-event", {
 					category: "Scene",
 					action: "Node Prefab Add",
 					label: "Empty"
 				}), _Scene.createNodeByClassID( n, c, t, o );
 			},
-			"scene:create-node-by-prefab": function( e, n, c, t, o ) {
+			"flow:create-node-by-prefab": function( e, n, c, t, o ) {
 				Editor.Ipc.sendToMain("metrics:track-event", {
 					category: "Scene",
 					action: "Node Prefab Add",
 					label: n.replace("New ", "")
 				}), _Scene.createNodeByPrefab( n, c, t, o );
 			},
-			"scene:move-nodes": function( e, n, c, t ) {
+			"flow:move-nodes": function( e, n, c, t ) {
 				_Scene.moveNodes( n, c, t );
 			},
-			"scene:delete-nodes": function( e, n ) {
+			"flow:delete-nodes": function( e, n ) {
 				_Scene.deleteNodes( n );
 			},
-			"scene:copy-nodes": function( e, n ) {
+			"flow:copy-nodes": function( e, n ) {
 				_Scene.copyNodes( n );
 			},
-			"scene:paste-nodes": function( e, n ) {
+			"flow:paste-nodes": function( e, n ) {
 				_Scene.pasteNodes( n );
 			},
-			"scene:duplicate-nodes": function( e, n ) {
+			"flow:duplicate-nodes": function( e, n ) {
 				_Scene.duplicateNodes( n );
 			},
-			"scene:stash-and-reload": function() {
+			"flow:stash-and-reload": function() {
 				var e = this;
 				_Scene.stashScene(function() {
 					e.reload();
 				});
 			},
-			"scene:soft-reload": function( e, n ) {
+			"flow:soft-reload": function( e, n ) {
 				_Scene.softReload( n );
 			},
-			"scene:center-nodes": function( e, n ) {
+			"flow:center-nodes": function( e, n ) {
 				_Scene.ajustSceneToNodes( n );
 			},
-			"scene:create-prefab": function( e, n, c ) {
+			"flow:create-prefab": function( e, n, c ) {
 				_Scene.createPrefab( n, c );
 			},
-			"scene:apply-prefab": function( e, n ) {
+			"flow:apply-prefab": function( e, n ) {
 				_Scene.applyPrefab( n );
 			},
-			"scene:revert-prefab": function( e, n ) {
+			"flow:revert-prefab": function( e, n ) {
 				_Scene.revertPrefab( n );
 			},
-			"scene:break-prefab-instance": function() {
+			"flow:break-prefab-instance": function() {
 				var e = Editor.Selection.curSelection("node");
 				_Scene.breakPrefabInstance( e );
 			},
-			"scene:enter-prefab-edit-mode": function( e, n ) {
+			"flow:enter-prefab-edit-mode": function( e, n ) {
 				_Scene.EditMode.push("prefab", n );
 			},
-			"scene:stash-and-save": function() {
+			"flow:stash-and-save": function() {
 				_Scene.save();
 			},
-			"scene:saved": function() {
+			"flow:saved": function() {
 				_Scene.Undo.save();
 			},
-			"scene:undo": function() {
+			"flow:undo": function() {
 				_Scene.Undo.undo();
 			},
-			"scene:redo": function() {
+			"flow:redo": function() {
 				_Scene.Undo.redo();
 			},
-			"scene:undo-record": function( e, n, c ) {
+			"flow:undo-record": function( e, n, c ) {
 				_Scene.Undo.recordObject( n, c );
 			},
-			"scene:undo-commit": function() {
+			"flow:undo-commit": function() {
 				_Scene.Undo.commit();
 			},
-			"scene:undo-cancel": function() {
+			"flow:undo-cancel": function() {
 				_Scene.Undo.cancel();
 			},
-			"scene:animation-state-changed": function( e, n ) {
+			"flow:animation-state-changed": function( e, n ) {
 				_Scene.AnimUtils.setCurrentPlayState( n );
 			},
-			"scene:query-animation-time": function( e, n ) {
+			"flow:query-animation-time": function( e, n ) {
 				var c = _Scene.AnimUtils.getAnimationTime( n );
 				e.reply( null, c );
 			},
-			"scene:animation-time-changed": function( e, n ) {
+			"flow:animation-time-changed": function( e, n ) {
 				_Scene.AnimUtils.setAnimationTime( n );
 			},
-			"scene:animation-clip-changed": function( e, n ) {
+			"flow:animation-clip-changed": function( e, n ) {
 				_Scene.AnimUtils.updateClip( n );
 			},
-			"scene:new-clip": function( e, n ) {
+			"flow:new-clip": function( e, n ) {
 				_Scene.AnimUtils.addClip( n );
 			},
-			"scene:animation-current-clip-changed": function( e, n ) {
+			"flow:animation-current-clip-changed": function( e, n ) {
 				_Scene.AnimUtils.changeCurrentClip( n );
 			},
-			"scene:save-clip": function() {
+			"flow:save-clip": function() {
 				_Scene.AnimUtils.save();
 			},
-			"scene:set-animation-speed": function( e, n ) {
+			"flow:set-animation-speed": function( e, n ) {
 				_Scene.AnimUtils.setSpeed( n );
 			},
-			"scene:export-particle-plist": function( e, n ) {
+			"flow:export-particle-plist": function( e, n ) {
 				_Scene.PariticleUtils.exportParticlePlist( n );
 			},
-			"scene:print-simulator-log": function( e, n ) {
+			"flow:print-simulator-log": function( e, n ) {
 				_Scene.printSimulatorLog( n );
 			},
-			"scene:exchange-spriteframes": function( e ) { // eslint-disable-line no-unused-vars
+			"flow:exchange-spriteframes": function( e ) { // eslint-disable-line no-unused-vars
 				_Scene.exchangeSpriteFrames();
 			},
 			"selection:selected": function( e, n, c ) {
