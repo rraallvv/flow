@@ -1,5 +1,5 @@
 "use strict";
-!function() {
+(function() {
     var e = require("electron"),
         n = require("fire-url");
     Editor.polymerPanel("scene", {
@@ -78,7 +78,9 @@
         },
         confirmCloseScene: function() {
             var e = 1 === _Scene.EditMode.close();
-            if ( e ) return 1;
+            if ( e ) {
+				return 1;
+			}
             var c = _Scene.Undo.dirty();
             if ( c ) {
                 var t = "New Scene",
@@ -124,7 +126,9 @@
             });
         },
         _onDragOver: function( e ) {
-            if ( _Scene.AnimUtils._recording ) return void Editor.UI.DragDrop.allowDrop( e.dataTransfer, !1 );
+            if ( _Scene.AnimUtils._recording ) {
+				return void Editor.UI.DragDrop.allowDrop( e.dataTransfer, !1 );
+			}
             var n = Editor.UI.DragDrop.type( e.dataTransfer );
             return "asset" !== n ? void Editor.UI.DragDrop.allowDrop( e.dataTransfer, !1 ) : (e.preventDefault(), e.stopPropagation(), Editor.UI.DragDrop.allowDrop( e.dataTransfer, !0 ), void Editor.UI.DragDrop.updateDropEffect( e.dataTransfer, "copy"));
         },
@@ -225,7 +229,9 @@
                 });
             },
             "scene:query-hierarchy": function( e ) {
-                if ( !cc.engine.isInitialized ) return void e.reply( null, "", []);
+                if ( !cc.engine.isInitialized ) {
+					return void e.reply( null, "", []);
+				}
                 var n = _Scene.dumpHierarchy(),
                     c = _Scene.currentScene().uuid;
                 e.reply( null, c, n );
@@ -281,7 +287,9 @@
                 var c = cc.engine.getInstanceById( n );
                 if ( c ) {
                     _Scene.Undo.recordNode( c.uuid, "Reset All"), _Scene.resetNode( c );
-                    for ( var t = 0; t < c._components.length; ++t ) _Scene.resetComponent( c._components[ t ] );
+                    for ( var t = 0; t < c._components.length; ++t ) {
+						_Scene.resetComponent( c._components[ t ] );
+					}
                     _Scene.Undo.commit();
                 }
             },
@@ -482,4 +490,4 @@
             }
         }
     });
-}();
+})();

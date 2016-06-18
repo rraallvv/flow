@@ -19,7 +19,9 @@ function _showSaveDialog() {
                 } ]
             });
         if ( s ) {
-            if ( Path.contains( t, s ) ) return "db://assets/" + Path.relative( t, s );
+            if ( Path.contains( t, s ) ) {
+				return "db://assets/" + Path.relative( t, s );
+			}
             Editor.Dialog.messageBox( Editor.Window.main.nativeWin, {
                 type: "warning",
                 buttons: [ "OK" ],
@@ -28,7 +30,7 @@ function _showSaveDialog() {
                 detail: Editor.T("MESSAGE.scene.save_inside_assets_detail"),
                 noLink: !0
             }), e = !0, t = s = void 0;
-        } else;
+        }
     }
 }
 
@@ -59,7 +61,9 @@ module.exports = {
             if ( s || (s = _showSaveDialog()) ) {
                 var i = Editor.assetdb._fspath( s );
                 Fs.existsSync( i ) ? Editor.assetdb.saveExists( s, t, function( e, t ) {
-                    if ( e ) return void Editor.assetdb.error("Failed to save scene %s", s, e.stack );
+                    if ( e ) {
+						return void Editor.assetdb.error("Failed to save scene %s", s, e.stack );
+					}
                     var i = t.meta;
                     Editor.Ipc.sendToAll("asset-db:asset-changed", {
                         type: i.assetType(),
@@ -73,7 +77,9 @@ module.exports = {
         "create-prefab": function( e, t, s ) {
             var i = Editor.assetdb._fspath( t );
             Fs.existsSync( i ) ? Editor.assetdb.saveExists( t, s, function( s, i ) {
-                if ( s ) return Editor.assetdb.error("Failed to save prefab %s, messages: %s", t, s.stack ), void e.reply( s );
+                if ( s ) {
+					return Editor.assetdb.error("Failed to save prefab %s, messages: %s", t, s.stack ), void e.reply( s );
+				}
                 var r = i.meta;
                 e.reply( null, r.uuid ), Editor.Ipc.sendToAll("asset-db:asset-changed", {
                     type: r.assetType(),
@@ -86,7 +92,9 @@ module.exports = {
         "apply-prefab": function( e, t, s ) {
             var i = Editor.assetdb.uuidToUrl( t );
             Editor.assetdb.saveExists( i, s, function( e, t ) {
-                if ( e ) return void Editor.assetdb.error("Failed to apply prefab %s, messages: %s", i, e.stack );
+                if ( e ) {
+					return void Editor.assetdb.error("Failed to apply prefab %s, messages: %s", i, e.stack );
+				}
                 var s = t.meta;
                 Editor.Ipc.sendToAll("asset-db:asset-changed", {
                     type: s.assetType(),
@@ -96,7 +104,9 @@ module.exports = {
         },
         "query-asset-info-by-uuid": function( e, t ) {
             var s = Editor.assetdb.uuidToFspath( t );
-            if ( !s ) return e.reply();
+            if ( !s ) {
+				return e.reply();
+			}
             var i = Editor.require("app://asset-db/lib/meta"),
                 r = i.get( Editor.assetdb, t );
             r && !r.useRawfile() && (s = Editor.assetdb._uuidToImportPathNoExt( t ), s += ".json");
@@ -112,7 +122,9 @@ module.exports = {
         "export-plist": function( e, t, s ) {
             var i = Editor.assetdb._url( t );
             Fs.existsSync( t ) ? Editor.assetdb.saveExists( i, s, function( t, s ) {
-                if ( t ) return Editor.assetdb.error("Failed to save plist %s, messages: %s", i, t.stack ), void e.reply( t );
+                if ( t ) {
+					return Editor.assetdb.error("Failed to save plist %s, messages: %s", i, t.stack ), void e.reply( t );
+				}
                 var r = s.meta;
                 e.reply( null, r.uuid ), Editor.Ipc.sendToAll("asset-db:asset-changed", {
                     type: r.assetType(),

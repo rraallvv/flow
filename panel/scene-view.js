@@ -1,5 +1,5 @@
 "use strict";
-!function() {
+(function() {
     Editor.polymerElement({
         listeners: {
             mousedown: "_onMouseDown",
@@ -100,16 +100,18 @@
         },
         adjustToCenter: function( i, e ) {
             var t, n, o, s;
-            if ( e ) o = e.width, s = e.height, t = e.x, n = e.y;
-            else {
+            if ( e ) {
+				o = e.width, s = e.height, t = e.x, n = e.y;
+			} else {
                 var r = cc.engine.getDesignResolutionSize();
                 o = r.width, s = r.height, t = 0, n = 0;
             }
             var c, d = this.getBoundingClientRect(),
                 a = d.width - 2 * i,
                 h = d.height - 2 * i;
-            if ( a >= o && h >= s ) c = 1;
-            else {
+            if ( a >= o && h >= s ) {
+				c = 1;
+			} else {
                 var l = Editor.Utils.fitSize( o, s, a, h );
                 c = l[ 0 ] < l[ 1 ] ? l[ 0 ] / o : l[ 1 ] / s, o = l[ 0 ], s = l[ 1 ];
             }
@@ -154,10 +156,15 @@
                             l = o;
                         0 > c && (h += c, c = -c), 0 > d && (l += d, d = -d), this.$.gizmosView.updateSelectRect( h, l, c, d );
                         var g, u, f = _Scene.rectHitTest( h, l, c, d );
-                        if ( e )
-                            for ( u = t.slice(), g = 0; g < f.length; ++g ) -1 === u.indexOf( f[ g ].uuid ) && u.push( f[ g ].uuid );
-                        else
-                            for ( u = [], g = 0; g < f.length; ++g ) u.push( f[ g ].uuid );
+                        if ( e ) {
+                            for ( u = t.slice(), g = 0; g < f.length; ++g ) {
+								-1 === u.indexOf( f[ g ].uuid ) && u.push( f[ g ].uuid );
+							}
+                        } else {
+							for ( u = [], g = 0; g < f.length; ++g ) {
+								u.push( f[ g ].uuid );
+							}
+						}
                         Editor.Selection.select("node", u, !0, !1 );
                     }
                 }.bind( this ), function( i, s, r, c, d ) {
@@ -165,7 +172,9 @@
                     if ( 4 > a ) {
                         var h = _Scene.hitTest( n, o );
                         e ? h && (-1 === t.indexOf( h.uuid ) ? Editor.Selection.select("node", h.uuid, !1, !0 ) : Editor.Selection.unselect("node", h.uuid, !0 )) : h ? Editor.Selection.select("node", h.uuid, !0, !0 ) : Editor.Selection.clear("node");
-                    } else Editor.Selection.confirm(), this.$.gizmosView.fadeoutSelectRect();
+                    } else {
+						Editor.Selection.confirm(), this.$.gizmosView.fadeoutSelectRect();
+					}
                 }.bind( this ) );
             }
         },
@@ -205,4 +214,4 @@
             _Scene.EditMode.pop();
         }
     });
-}();
+})();
