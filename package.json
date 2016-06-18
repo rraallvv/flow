@@ -1,0 +1,45 @@
+{
+  "name": "scene",
+  "version": "0.1.4",
+  "description": "A scene editor",
+  "author": "Firebox Technology",
+  "packages": {
+    "ui-kit": "^0.1.0",
+    "ui-grid": "^0.1.0"
+  },
+  "main": "main.js",
+  "main-menu": {
+    "i18n:MAIN_MENU.panel.title/i18n:MAIN_MENU.panel.scene": {
+      "icon": "panel/icon.png",
+      "accelerator": "CmdOrCtrl+1",
+      "message": "scene:open"
+    }
+  },
+  "panel": {
+    "main": "panel/scene.html",
+    "ui": "polymer",
+    "popable": false,
+    "type": "dockable",
+    "title": "i18n:MAIN_MENU.panel.scene",
+    "icon": "panel/icon.png",
+    "width": "auto",
+    "height": "auto",
+    "shortcuts": {
+      "#sceneView" : {
+        "command+backspace": "deleteCurrentSelected",
+        "del": "deleteCurrentSelected",
+        "command+d": "duplicateCurrentSelected",
+        "ctrl+d": "duplicateCurrentSelected"
+      }
+    },
+    "profiles": {
+      "local": {
+        "designWidth": 640,
+        "designHeight": 480
+      }
+    }
+  },
+  "tests": [
+    "test/basic.html"
+  ]
+}

@@ -1,0 +1,5 @@
+<link rel="import" href="packages://ui-grid/widget/pixi-grid.html"><link rel="import" href="app://editor/page/gizmos/view/svg-gizmos-view.html"><dom-module id="scene-view"><link rel="import" type="css" href="scene-view.css"><template><style>#engine-canvas {
+        position:absolute
+      }</style><pixi-grid id="grid" class="fit" show-label-h show-label-v></pixi-grid><canvas id="engine-canvas"></canvas><svg-gizmos-view id="gizmosView" class="fit"></svg-gizmos-view><pre>
+      [[_T('SCENE.pan_hint')]]
+    </pre><div id="editButtons" class="overlaying-buttons layout horizontal center" hidden="[[!_inEditMode(mode)]]"><img src="[[_editModeIcon(mode)]]"><editor-button on-click="_onSaveEditMode">[[_T('SHARED.save')]]</editor-button><editor-button on-click="_onCloseEditMode">[[_T('SHARED.close')]]</editor-button></div></template><script>Editor.require("app://editor/page/gizmos/init.js");</script><script src="scene-view.js"></script></dom-module>
