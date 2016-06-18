@@ -2,7 +2,7 @@
 (function() {
     var e = require("electron"),
         n = require("fire-url");
-    Editor.polymerPanel("scene", {
+    Editor.polymerPanel("flow", {
         behaviors: [ Editor.UI.Droppable ],
         hostAttributes: {
             droppable: "asset"
@@ -46,7 +46,7 @@
         },
         ready: function() {
             this._initDroppable( this.$.dropArea ), _Scene.init(), Polymer.dom( this.$.border ).insertBefore( _Scene.view, this.$.loader ), this.$.sceneView = _Scene.view, this.$.sceneView.init(), e.ipcRenderer.on("editor:panel-undock", function( e ) {
-                "scene" === e && _Scene.EngineEvents.unregister();
+                "flow" === e && _Scene.EngineEvents.unregister();
             });
         },
         close: function() {

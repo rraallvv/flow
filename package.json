@@ -1,7 +1,7 @@
 {
-	"name": "scene",
+	"name": "flow",
 	"version": "0.1.4",
-	"description": "A scene editor",
+	"description": "A node graph editor",
 	"author": "Firebox Technology",
 	"packages": {
 		"ui-kit": "^0.1.0",
@@ -9,10 +9,9 @@
 	},
 	"main": "main.js",
 	"main-menu": {
-		"i18n:MAIN_MENU.panel.title/i18n:MAIN_MENU.panel.scene": {
+		"i18n:MAIN_MENU.panel.title/flow": {
 			"icon": "panel/icon.png",
-			"accelerator": "CmdOrCtrl+1",
-			"message": "scene:open"
+			"message": "flow:open"
 		}
 	},
 	"panel": {
@@ -20,7 +19,7 @@
 		"ui": "polymer",
 		"popable": false,
 		"type": "dockable",
-		"title": "i18n:MAIN_MENU.panel.scene",
+		"title": "flow",
 		"icon": "panel/icon.png",
 		"width": "auto",
 		"height": "auto",

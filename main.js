@@ -46,10 +46,10 @@ module.exports = {
     unload: function() {},
     messages: {
         open: function() {
-            Editor.Panel.open("scene");
+            Editor.Panel.open("flow");
         },
         "open-by-uuid": function( e, t ) {
-            Editor.Panel.open("scene", {
+            Editor.Panel.open("flow", {
                 uuid: t
             });
         },
