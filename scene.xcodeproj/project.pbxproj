@@ -29,7 +29,7 @@
 /* Begin PBXLegacyTarget section */
 		E457C6971CEB9E0E00BFBE0D /* Demo */ = {
 			isa = PBXLegacyTarget;
-			buildArgumentsString = "run jscs";
+			buildArgumentsString = build;
 			buildConfigurationList = E457C6981CEB9E0E00BFBE0D /* Build configuration list for PBXLegacyTarget "Demo" */;
 			buildPhases = (
 			);

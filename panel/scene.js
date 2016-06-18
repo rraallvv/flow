@@ -461,7 +461,7 @@
             "scene:print-simulator-log": function( e, n ) {
                 _Scene.printSimulatorLog( n );
             },
-            "scene:exchange-spriteframes": function( e ) {
+            "scene:exchange-spriteframes": function( e ) { // eslint-disable-line no-unused-vars
                 _Scene.exchangeSpriteFrames();
             },
             "selection:selected": function( e, n, c ) {
