@@ -15,7 +15,7 @@
 		}
 	},
 	"panel": {
-		"main": "panel/scene.html",
+		"main": "panel/flow.html",
 		"ui": "polymer",
 		"popable": false,
 		"type": "dockable",
