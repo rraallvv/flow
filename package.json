@@ -24,7 +24,7 @@
 		"width": "auto",
 		"height": "auto",
 		"shortcuts": {
-			"#sceneView" : {
+			"#flowView" : {
 				"command+backspace": "deleteCurrentSelected",
 				"del": "deleteCurrentSelected",
 				"command+d": "duplicateCurrentSelected",

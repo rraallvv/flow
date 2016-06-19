@@ -37,10 +37,12 @@ function _showSaveDialog() {
 function _setCurrentScene( e ) {
 	Editor.currentSceneUuid = e, Editor._projectLocalProfile[ "last-edit" ] = Editor.currentSceneUuid, Editor._projectLocalProfile.save();
 }
+
 var Fs = require("fire-fs"),
 	Path = require("fire-path"),
 	Electron = require("electron"),
 	Dialog = Electron.dialog;
+
 module.exports = {
 	load: function() {},
 	unload: function() {},

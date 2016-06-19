@@ -45,7 +45,7 @@
 			}
 		},
 		ready: function() {
-			this._initDroppable( this.$.dropArea ), _Scene.init(), Polymer.dom( this.$.border ).insertBefore( _Scene.view, this.$.loader ), this.$.sceneView = _Scene.view, this.$.sceneView.init(), e.ipcRenderer.on("editor:panel-undock", function( e ) {
+			this._initDroppable( this.$.dropArea ), _Scene.init(), /* Polymer.dom( this.$.border ).insertBefore( _Scene.view, this.$.loader ), this.$.flowView = _Scene.view, */ this.$.flowView.init(), e.ipcRenderer.on("editor:panel-undock", function( e ) {
 				"flow" === e && _Scene.EngineEvents.unregister();
 			});
 		},
@@ -63,7 +63,7 @@
 		_onPanelResize: function() {
 			var e = this;
 			this._resizeDebounceID || (this._resizeDebounceID = setTimeout(function() {
-				e._resizeDebounceID = null, _Scene.view._resize();
+				e._resizeDebounceID = null, /* _Scene.view._resize() */ e.$.flowView._resize();
 			}, 10 ));
 		},
 		deleteCurrentSelected: function( e ) {
