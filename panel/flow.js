@@ -12,8 +12,8 @@
 			"drop-area-leave": "_onDropAreaLeave",
 			"drop-area-accept": "_onDropAreaAccept",
 			"engine-ready": "_onEngineReady",
-			"scene-view-ready": "_onSceneViewReady",
-			"scene-view-init-error": "_onSceneViewInitError",
+			"flow-view-ready": "_onSceneViewReady",
+			"flow-view-init-error": "_onSceneViewInitError",
 			"panel-show": "_onPanelResize",
 			"panel-resize": "_onPanelResize",
 			"panel-copy": "_onPanelCopy",
@@ -145,13 +145,13 @@
 		_loadScene: function( e ) {
 			var n = this;
 			this.$.loader.hidden = !1, Editor.Ipc.sendToAll("flow:reloading"), _Scene.loadSceneByUuid( e, function( e ) {
-				return e ? void n.fire("scene-view-init-error", e ) : void n.fire("scene-view-ready");
+				return e ? void n.fire("flow-view-init-error", e ) : void n.fire("flow-view-ready");
 			});
 		},
 		_newScene: function() {
 			var e = this;
 			this.$.loader.hidden = !1, Editor.Ipc.sendToAll("flow:reloading"), _Scene.newScene(function() {
-				e.fire("scene-view-ready");
+				e.fire("flow-view-ready");
 			});
 		},
 		_onAlignTop: function() {

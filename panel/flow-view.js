@@ -37,7 +37,7 @@
 			var i = this;
 			this._initTimer = setInterval(function() {
 				var e = i.getBoundingClientRect();
-				0 === e.width && 0 === e.height || (clearInterval( i._initTimer ), cc.engine.isInitialized ? (i.fire("engine-ready"), i.fire("scene-view-ready"), i._resize()) : i._initEngine(function() {
+				0 === e.width && 0 === e.height || (clearInterval( i._initTimer ), cc.engine.isInitialized ? (i.fire("engine-ready"), i.fire("flow-view-ready"), i._resize()) : i._initEngine(function() {
 					i.$.gizmosView.sceneToPixel = i.sceneToPixel.bind( i ), i.$.gizmosView.worldToPixel = i.worldToPixel.bind( i ), i.$.gizmosView.pixelToScene = i.pixelToScene.bind( i ), i.$.gizmosView.pixelToWorld = i.pixelToWorld.bind( i ), i._resize();
 				}));
 			}, 100 );
@@ -94,7 +94,7 @@
 				};
 			cc.engine.init( s, function() {
 				e.fire("engine-ready"), _Scene.initScene(function( t ) {
-					return t ? void e.fire("scene-view-init-error", t ) : (e.fire("scene-view-ready"), void(i && i()));
+					return t ? void e.fire("flow-view-init-error", t ) : (e.fire("flow-view-ready"), void(i && i()));
 				});
 			});
 		},
