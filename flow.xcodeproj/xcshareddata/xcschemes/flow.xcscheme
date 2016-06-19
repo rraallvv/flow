@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E457C6971CEB9E0E00BFBE0D"
-               BuildableName = "Demo"
-               BlueprintName = "Demo"
-               ReferencedContainer = "container:scene.xcodeproj">
+               BuildableName = "flow"
+               BlueprintName = "flow"
+               ReferencedContainer = "container:flow.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,8 +33,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E457C6971CEB9E0E00BFBE0D"
-            BuildableName = "Demo"
-            BlueprintName = "Demo"
+            BuildableName = "flow"
+            BlueprintName = "flow"
             ReferencedContainer = "container:flow.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -55,6 +55,15 @@
          runnableDebuggingMode = "0"
          FilePath = "/usr/bin/open">
       </PathRunnable>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "E457C6971CEB9E0E00BFBE0D"
+            BuildableName = "flow"
+            BlueprintName = "flow"
+            ReferencedContainer = "container:flow.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <CommandLineArguments>
          <CommandLineArgument
             argument = "$SRCROOT/index.html"
@@ -70,6 +79,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "E457C6971CEB9E0E00BFBE0D"
+            BuildableName = "flow"
+            BlueprintName = "flow"
+            ReferencedContainer = "container:flow.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

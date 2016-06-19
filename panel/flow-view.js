@@ -205,7 +205,7 @@
 			return "" !== i;
 		},
 		_editModeIcon: function( i ) {
-			return i ? Editor.url("app://editor/builtin/scene/icon/" + i + ".png") : "";
+			return i ? Editor.url("packages://flow/icon/" + i + ".png") : "";
 		},
 		_onSaveEditMode: function() {
 			_Scene.EditMode.save();

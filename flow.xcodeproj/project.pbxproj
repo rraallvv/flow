@@ -27,17 +27,17 @@
 /* End PBXGroup section */
 
 /* Begin PBXLegacyTarget section */
-		E457C6971CEB9E0E00BFBE0D /* Demo */ = {
+		E457C6971CEB9E0E00BFBE0D /* flow */ = {
 			isa = PBXLegacyTarget;
 			buildArgumentsString = build;
-			buildConfigurationList = E457C6981CEB9E0E00BFBE0D /* Build configuration list for PBXLegacyTarget "Demo" */;
+			buildConfigurationList = E457C6981CEB9E0E00BFBE0D /* Build configuration list for PBXLegacyTarget "flow" */;
 			buildPhases = (
 			);
 			buildToolPath = npm;
 			buildWorkingDirectory = "$(SRCROOT)";
 			dependencies = (
 			);
-			name = Demo;
+			name = flow;
 			passBuildSettingsInEnvironment = 0;
 			productName = Demo;
 		};
@@ -54,7 +54,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E457C6871CEB9D6D00BFBE0D /* Build configuration list for PBXProject "scene" */;
+			buildConfigurationList = E457C6871CEB9D6D00BFBE0D /* Build configuration list for PBXProject "flow" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -65,7 +65,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E457C6971CEB9E0E00BFBE0D /* Demo */,
+				E457C6971CEB9E0E00BFBE0D /* flow */,
 			);
 		};
 /* End PBXProject section */
@@ -169,7 +169,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E457C6871CEB9D6D00BFBE0D /* Build configuration list for PBXProject "scene" */ = {
+		E457C6871CEB9D6D00BFBE0D /* Build configuration list for PBXProject "flow" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E457C6881CEB9D6D00BFBE0D /* Debug */,
@@ -178,7 +178,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E457C6981CEB9E0E00BFBE0D /* Build configuration list for PBXLegacyTarget "Demo" */ = {
+		E457C6981CEB9E0E00BFBE0D /* Build configuration list for PBXLegacyTarget "flow" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E457C6991CEB9E0E00BFBE0D /* Debug */,
