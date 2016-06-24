@@ -73,8 +73,10 @@
 		_resize: function() {
 			var i = this.getBoundingClientRect();
 			if ( (0 !== i.width || 0 !== i.height) && (this.$.grid.resize(), this.$.grid.repaint(), this.$.gizmosView.resize(), cc.engine.isInitialized) ) {
+/*
 				var e = cc.director.getScene();
 				e && (cc.view.setCanvasSize( i.width, i.height ), cc.view.setDesignResolutionSize( i.width, i.height, this._policy || cc.ResolutionPolicy.SHOW_ALL ), e.scale = cc.v2( this.$.grid.xAxisScale, this.$.grid.yAxisScale ), e.setPosition( cc.v2( this.$.grid.xDirection * this.$.grid.xAxisOffset, this.$.grid.yDirection * this.$.grid.yAxisOffset ) ), cc.engine.repaintInEditMode());
+*/
 			}
 		},
 		_initEngine: function( i ) {
@@ -136,8 +138,10 @@
 			var e = this;
 			return 3 === i.which || 2 === i.which || this.movingScene ? (i.stopPropagation(), this.style.cursor = "-webkit-grabbing", void Editor.UI.DomUtils.startDrag("-webkit-grabbing", i, function( i, t, n ) {
 				e.$.grid.pan( t, n ), e.$.grid.repaint();
+/*
 				var o = cc.director.getScene();
 				o.setPosition( cc.v2( e.$.grid.xDirection * e.$.grid.xAxisOffset, e.$.grid.yDirection * e.$.grid.yAxisOffset ) ), cc.engine.repaintInEditMode();
+*/
 			}, function( i ) {
 				i.shiftKey ? e.style.cursor = "-webkit-grab" : e.style.cursor = "";
 			})) : void 0;
@@ -149,6 +153,8 @@
 				(i.metaKey || i.ctrlKey) && (e = !0);
 				var n = i.offsetX,
 					o = i.offsetY;
+				// Editor.log(n, o);
+/*
 				Editor.UI.DomUtils.startDrag("default", i, function( i, s, r, c, d ) {
 					var a = c * c + d * d;
 					if ( !(4 > a) ) {
@@ -176,24 +182,31 @@
 						Editor.Selection.confirm(), this.$.gizmosView.fadeoutSelectRect();
 					}
 				}.bind( this ) );
+*/
 			}
 		},
 		_onMouseWheel: function( i ) {
 			i.stopPropagation();
 			var e = Editor.Utils.smoothScale( this.scale, i.wheelDelta );
 			e = Editor.Math.clamp( e, this.$.grid.hticks.minValueScale, this.$.grid.hticks.maxValueScale ), this.scale = e, this.$.grid.xAxisScaleAt( i.offsetX, e ), this.$.grid.yAxisScaleAt( i.offsetY, e ), this.$.grid.repaint(), this.$.gizmosView.scale = e;
+			// Editor.log(e);
+/*
 			var t = cc.director.getScene();
 			t.scale = cc.v2( this.$.grid.xAxisScale, this.$.grid.yAxisScale ), t.setPosition( cc.v2( this.$.grid.xDirection * this.$.grid.xAxisOffset, this.$.grid.yDirection * this.$.grid.yAxisOffset ) ), cc.engine.repaintInEditMode();
+*/
 		},
 		_onMouseMove: function( i ) {
 			if ( i.stopPropagation(), !this.movingScene ) {
+				// Editor.log( i.offsetX, i.offsetY );
+/*
 				var e = _Scene.hitTest( i.offsetX, i.offsetY ),
 					t = e ? e.uuid : null;
 				Editor.Selection.hover("node", t );
+*/
 			}
 		},
 		_onMouseLeave: function() {
-			Editor.Selection.hover("node", null );
+//			Editor.Selection.hover("node", null );
 		},
 		_onKeyDown: function( i ) {
 			i.stopPropagation(), "space" === Editor.KeyCode( i.which ) && (this.style.cursor = "-webkit-grab", this.movingScene = !0);
@@ -208,10 +221,10 @@
 			return i ? Editor.url("packages://flow/icon/" + i + ".png") : "";
 		},
 		_onSaveEditMode: function() {
-			_Scene.EditMode.save();
+//			_Scene.EditMode.save();
 		},
 		_onCloseEditMode: function() {
-			_Scene.EditMode.pop();
+//			_Scene.EditMode.pop();
 		}
 	});
 })();
