@@ -53,6 +53,7 @@
       allowLocationSimulation = "YES">
       <PathRunnable
          runnableDebuggingMode = "0"
+         BundleIdentifier = "com.cocos.creator"
          FilePath = "/Applications/CocosCreator.app">
       </PathRunnable>
       <MacroExpansion>
@@ -66,7 +67,7 @@
       </MacroExpansion>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "$SRCROOT/index.html"
+            argument = "--path $HOME/Documents/CocosCreator/ExampleCollection"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>
