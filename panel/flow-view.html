@@ -1,5 +1,6 @@
 <link rel="import" href="packages://ui-grid/widget/pixi-grid.html">
 <link rel="import" href="app://editor/page/gizmos/view/svg-gizmos-view.html">
+<link rel="import" href="flow-graph.html">
 <dom-module id="flow-view">
 	<link rel="import" type="css" href="flow-view.css">
 	<template>
@@ -9,6 +10,7 @@
 			}
 		</style>
 		<pixi-grid id="grid" class="fit"></pixi-grid>
+		<flow-graph></flow-graph>
 		<canvas id="engine-canvas"></canvas>
 		<svg-gizmos-view id="gizmosView" class="fit"></svg-gizmos-view>
 		<pre>[[_T('SCENE.pan_hint')]]</pre>
