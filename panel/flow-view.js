@@ -136,8 +136,11 @@
 		},
 		_onCaptureMousedown: function( i ) {
 			var e = this;
-			return 3 === i.which || 2 === i.which || this.movingScene ? (i.stopPropagation(), this.style.cursor = "-webkit-grabbing", void Editor.UI.DomUtils.startDrag("-webkit-grabbing", i, function( i, t, n ) {
+			return 3 === i.which || 2 === i.which || this.movingGraph ? (i.stopPropagation(), this.style.cursor = "-webkit-grabbing", void Editor.UI.DomUtils.startDrag("-webkit-grabbing", i, function( i, t, n ) {
 				e.$.grid.pan( t, n ), e.$.grid.repaint();
+				e.$.graph.style.position = "absolute";
+				e.$.graph.style.left = (e.$.graph.offsetLeft + t) + "px";
+				e.$.graph.style.top = (e.$.graph.offsetTop + n) + "px";
 /*
 				var o = cc.director.getScene();
 				o.setPosition( cc.v2( e.$.grid.xDirection * e.$.grid.xAxisOffset, e.$.grid.yDirection * e.$.grid.yAxisOffset ) ), cc.engine.repaintInEditMode();
@@ -196,7 +199,7 @@
 */
 		},
 		_onMouseMove: function( i ) {
-			if ( i.stopPropagation(), !this.movingScene ) {
+			if ( i.stopPropagation(), !this.movingGraph ) {
 				// Editor.log( i.offsetX, i.offsetY );
 /*
 				var e = _Scene.hitTest( i.offsetX, i.offsetY ),
@@ -209,10 +212,10 @@
 //			Editor.Selection.hover("node", null );
 		},
 		_onKeyDown: function( i ) {
-			i.stopPropagation(), "space" === Editor.KeyCode( i.which ) && (this.style.cursor = "-webkit-grab", this.movingScene = !0);
+			i.stopPropagation(), "space" === Editor.KeyCode( i.which ) && (this.style.cursor = "-webkit-grab", this.movingGraph = !0);
 		},
 		_onKeyUp: function( i ) {
-			i.stopPropagation(), "space" === Editor.KeyCode( i.which ) && (this.style.cursor = "", this.movingScene = !1);
+			i.stopPropagation(), "space" === Editor.KeyCode( i.which ) && (this.style.cursor = "", this.movingGraph = !1);
 		},
 		_inEditMode: function( i ) {
 			return "" !== i;

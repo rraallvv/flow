@@ -10,7 +10,6 @@
 			}
 		</style>
 		<pixi-grid id="grid" class="fit"></pixi-grid>
-		<flow-graph></flow-graph>
 		<canvas id="engine-canvas"></canvas>
 		<svg-gizmos-view id="gizmosView" class="fit"></svg-gizmos-view>
 		<pre>[[_T('SCENE.pan_hint')]]</pre>
@@ -19,6 +18,7 @@
 			<editor-button on-click="_onSaveEditMode">[[_T('SHARED.save')]]</editor-button>
 			<editor-button on-click="_onCloseEditMode">[[_T('SHARED.close')]]</editor-button>
 		</div>
+		<flow-graph id="graph"></flow-graph>
 	</template>
 	<script>Editor.require("app://editor/page/gizmos/init.js");</script>
 	<script src="flow-view.js"></script>
