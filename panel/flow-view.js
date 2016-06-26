@@ -40,6 +40,15 @@
 				0 === e.width && 0 === e.height || (clearInterval( i._initTimer ), cc.engine.isInitialized ? (i.fire("engine-ready"), i.fire("flow-view-ready"), i._resize()) : i._initEngine(function() {
 					i.$.gizmosView.sceneToPixel = i.sceneToPixel.bind( i ), i.$.gizmosView.worldToPixel = i.worldToPixel.bind( i ), i.$.gizmosView.pixelToScene = i.pixelToScene.bind( i ), i.$.gizmosView.pixelToWorld = i.pixelToWorld.bind( i ), i._resize();
 				}));
+
+				var n = i.$.grid.xDirection * i.$.grid.xAxisOffset;
+				var t = e.height - i.$.grid.yDirection * i.$.grid.yAxisOffset;
+
+				i.$.graph.style.transform = "matrix(" +
+					i.$.grid.xAxisScale + ", 0, 0, " +
+					i.$.grid.yAxisScale + ", " +
+					(n - 0.5 * i.$.graph.offsetWidth + 0.5 * i.$.grid.xAxisScale * i.$.graph.offsetWidth) + ", " +
+					(t - 0.5 * i.$.graph.offsetHeight + 0.5 * i.$.grid.yAxisScale * i.$.graph.offsetHeight) + ")";
 			}, 100 );
 			var e = cc.ContainerStrategy.extend({
 				apply: function( i, e ) {
@@ -138,9 +147,15 @@
 			var e = this;
 			return 3 === i.which || 2 === i.which || this.movingGraph ? (i.stopPropagation(), this.style.cursor = "-webkit-grabbing", void Editor.UI.DomUtils.startDrag("-webkit-grabbing", i, function( i, t, n ) {
 				e.$.grid.pan( t, n ), e.$.grid.repaint();
-				e.$.graph.style.position = "absolute";
-				e.$.graph.style.left = (e.$.graph.offsetLeft + t) + "px";
-				e.$.graph.style.top = (e.$.graph.offsetTop + n) + "px";
+
+				var n = e.$.grid.xDirection * e.$.grid.xAxisOffset;
+				var t = e.getBoundingClientRect().height - e.$.grid.yDirection * e.$.grid.yAxisOffset;
+
+				e.$.graph.style.transform = "matrix(" +
+					e.$.grid.xAxisScale + ", 0, 0, " +
+					e.$.grid.yAxisScale + ", " +
+					(n - 0.5 * e.$.graph.offsetWidth + 0.5 * e.$.grid.xAxisScale * e.$.graph.offsetWidth) + ", " +
+					(t - 0.5 * e.$.graph.offsetHeight + 0.5 * e.$.grid.yAxisScale * e.$.graph.offsetHeight) + ")";
 /*
 				var o = cc.director.getScene();
 				o.setPosition( cc.v2( e.$.grid.xDirection * e.$.grid.xAxisOffset, e.$.grid.yDirection * e.$.grid.yAxisOffset ) ), cc.engine.repaintInEditMode();
@@ -192,7 +207,16 @@
 			i.stopPropagation();
 			var e = Editor.Utils.smoothScale( this.scale, i.wheelDelta );
 			e = Editor.Math.clamp( e, this.$.grid.hticks.minValueScale, this.$.grid.hticks.maxValueScale ), this.scale = e, this.$.grid.xAxisScaleAt( i.offsetX, e ), this.$.grid.yAxisScaleAt( i.offsetY, e ), this.$.grid.repaint(), this.$.gizmosView.scale = e;
-			// Editor.log(e);
+
+			var n = this.$.grid.xDirection * this.$.grid.xAxisOffset;
+			var t = this.getBoundingClientRect().height - this.$.grid.yDirection * this.$.grid.yAxisOffset;
+
+			this.$.graph.style.transform = "matrix(" +
+				this.$.grid.xAxisScale + ", 0, 0, " +
+				this.$.grid.yAxisScale + ", " +
+				(n - 0.5 * this.$.graph.offsetWidth + 0.5 * this.$.grid.xAxisScale * this.$.graph.offsetWidth) + ", " +
+				(t - 0.5 * this.$.graph.offsetHeight + 0.5 * this.$.grid.yAxisScale * this.$.graph.offsetHeight) + ")";
+
 /*
 			var t = cc.director.getScene();
 			t.scale = cc.v2( this.$.grid.xAxisScale, this.$.grid.yAxisScale ), t.setPosition( cc.v2( this.$.grid.xDirection * this.$.grid.xAxisOffset, this.$.grid.yDirection * this.$.grid.yAxisOffset ) ), cc.engine.repaintInEditMode();
