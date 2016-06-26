@@ -69,6 +69,7 @@
 		},
 		initPosition: function( i, e, t ) {
 			this.scale = t, this.$.grid.xAxisSync( i, t ), this.$.grid.yAxisSync( e, t ), this.$.grid.repaint(), this.$.gizmosView.scale = t;
+			/*
 			var n = [ "_position", "_rotationX", "_rotationY", "_scaleX", "_scaleY", "_skewX", "_skewY" ];
 			n.forEach(function( i ) {
 				var e = cc.Class.attr( cc.Scene, i );
@@ -78,6 +79,7 @@
 			});
 			var o = cc.director.getScene();
 			o.scale = cc.v2( this.$.grid.xAxisScale, this.$.grid.yAxisScale ), o.setPosition( cc.v2( this.$.grid.xDirection * this.$.grid.xAxisOffset, this.$.grid.yDirection * this.$.grid.yAxisOffset ) ), cc.engine.repaintInEditMode();
+			*/
 		},
 		_resize: function() {
 			var i = this.getBoundingClientRect();
