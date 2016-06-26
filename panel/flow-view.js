@@ -22,7 +22,7 @@
 		_policy: null,
 		ready: function() {
 			var i = [ 0, 1, 1 ],
-				e = [ 1, 0, 1 ];
+				e = [ 0, 1, 1 ];
 			this.$.grid.setScaleH([ 5, 2 ], .01, 1e3 ), this.$.grid.setMappingH( i[ 0 ], i[ 1 ], i[ 2 ] ), this.$.grid.setScaleV([ 5, 2 ], .01, 1e3 ), this.$.grid.setMappingV( e[ 0 ], e[ 1 ], e[ 2 ] ), this.$.grid.setAnchor( .5, .5 ), this.addEventListener("mousedown", this._onCaptureMousedown.bind( this ), !0 ), this.$.editButtons.addEventListener("mousedown", function( i ) {
 				return i.stopPropagation();
 			});
@@ -42,7 +42,7 @@
 				}));
 
 				var n = i.$.grid.xDirection * i.$.grid.xAxisOffset;
-				var t = e.height - i.$.grid.yDirection * i.$.grid.yAxisOffset;
+				var t = i.$.grid.yDirection * i.$.grid.yAxisOffset;
 
 				i.$.graph.style.transform = "matrix(" +
 					i.$.grid.xAxisScale + ", 0, 0, " +
@@ -151,7 +151,7 @@
 				e.$.grid.pan( t, n ), e.$.grid.repaint();
 
 				var n = e.$.grid.xDirection * e.$.grid.xAxisOffset;
-				var t = e.getBoundingClientRect().height - e.$.grid.yDirection * e.$.grid.yAxisOffset;
+				var t = e.$.grid.yDirection * e.$.grid.yAxisOffset;
 
 				e.$.graph.style.transform = "matrix(" +
 					e.$.grid.xAxisScale + ", 0, 0, " +
@@ -211,7 +211,7 @@
 			e = Editor.Math.clamp( e, this.$.grid.hticks.minValueScale, this.$.grid.hticks.maxValueScale ), this.scale = e, this.$.grid.xAxisScaleAt( i.offsetX, e ), this.$.grid.yAxisScaleAt( i.offsetY, e ), this.$.grid.repaint(), this.$.gizmosView.scale = e;
 
 			var n = this.$.grid.xDirection * this.$.grid.xAxisOffset;
-			var t = this.getBoundingClientRect().height - this.$.grid.yDirection * this.$.grid.yAxisOffset;
+			var t = this.$.grid.yDirection * this.$.grid.yAxisOffset;
 
 			this.$.graph.style.transform = "matrix(" +
 				this.$.grid.xAxisScale + ", 0, 0, " +
