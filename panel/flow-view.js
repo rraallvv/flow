@@ -211,11 +211,14 @@
 		},
 		_onMouseWheel: function( i ) {
 			i.stopPropagation();
+
 			var e = Editor.Utils.smoothScale( this.scale, i.wheelDelta );
 			e = Editor.Math.clamp( e, this.$.grid.hticks.minValueScale, this.$.grid.hticks.maxValueScale );
 			this.scale = e;
-			this.$.grid.xAxisScaleAt( i.offsetX, e );
-			this.$.grid.yAxisScaleAt( i.offsetY, e );
+
+			var b = this.getBoundingClientRect();
+			this.$.grid.xAxisScaleAt( i.clientX - b.left, e );
+			this.$.grid.yAxisScaleAt( i.clientY - b.top, e );
 			this.$.grid.repaint();
 			this.$.gizmosView.scale = e;
 
