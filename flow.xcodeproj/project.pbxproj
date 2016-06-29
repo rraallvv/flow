@@ -11,6 +11,7 @@
 		E41A76431D15D60D007EAC15 /* main.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = main.js; sourceTree = "<group>"; };
 		E41A76441D15D60D007EAC15 /* package.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = package.json; sourceTree = "<group>"; };
 		E41A76451D15D60D007EAC15 /* panel */ = {isa = PBXFileReference; lastKnownFileType = folder; path = panel; sourceTree = "<group>"; };
+		E492EA6A1D2394BB00C72D34 /* widget */ = {isa = PBXFileReference; lastKnownFileType = folder; path = widget; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -19,6 +20,7 @@
 			children = (
 				E41A76421D15D60D007EAC15 /* icon */,
 				E41A76451D15D60D007EAC15 /* panel */,
+				E492EA6A1D2394BB00C72D34 /* widget */,
 				E41A76431D15D60D007EAC15 /* main.js */,
 				E41A76441D15D60D007EAC15 /* package.json */,
 			);

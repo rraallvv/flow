@@ -23,7 +23,7 @@
 		ready: function() {
 			var i = [ 0, 1, 1 ],
 				e = [ 0, 1, 1 ];
-			this.$.grid.setScaleH([ 5, 2 ], .01, 1e3 ), this.$.grid.setMappingH( i[ 0 ], i[ 1 ], i[ 2 ] ), this.$.grid.setScaleV([ 5, 2 ], .01, 1e3 ), this.$.grid.setMappingV( e[ 0 ], e[ 1 ], e[ 2 ] ), this.$.grid.setAnchor( .5, .5 ), this.addEventListener("mousedown", this._onCaptureMousedown.bind( this ), !0 ), this.$.editButtons.addEventListener("mousedown", function( i ) {
+			this.$.grid.setScaleH([ 5, 2 ], 100, 1000), this.$.grid.setMappingH( i[ 0 ], i[ 1 ], i[ 2 ] ), this.$.grid.setScaleV([ 5, 2 ], 100, 1000), this.$.grid.setMappingV( e[ 0 ], e[ 1 ], e[ 2 ] ), this.$.grid.setAnchor( .5, .5 ), this.addEventListener("mousedown", this._onCaptureMousedown.bind( this ), !0 ), this.$.editButtons.addEventListener("mousedown", function( i ) {
 				return i.stopPropagation();
 			});
 		},
