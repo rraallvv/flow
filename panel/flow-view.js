@@ -68,7 +68,11 @@
 			this._policy = new cc.ResolutionPolicy( new e, cc.ContentStrategy.SHOW_ALL );
 		},
 		initPosition: function( i, e, t ) {
-			this.scale = t, this.$.grid.xAxisSync( i, t ), this.$.grid.yAxisSync( e, t ), this.$.grid.repaint(), this.$.gizmosView.scale = t;
+			this.scale = t;
+			this.$.grid.xAxisSync( i, t );
+			this.$.grid.yAxisSync( e, t );
+			this.$.grid.repaint();
+			this.$.gizmosView.scale = t;
 			/*
 			var n = [ "_position", "_rotationX", "_rotationY", "_scaleX", "_scaleY", "_skewX", "_skewY" ];
 			n.forEach(function( i ) {
@@ -208,7 +212,12 @@
 		_onMouseWheel: function( i ) {
 			i.stopPropagation();
 			var e = Editor.Utils.smoothScale( this.scale, i.wheelDelta );
-			e = Editor.Math.clamp( e, this.$.grid.hticks.minValueScale, this.$.grid.hticks.maxValueScale ), this.scale = e, this.$.grid.xAxisScaleAt( i.offsetX, e ), this.$.grid.yAxisScaleAt( i.offsetY, e ), this.$.grid.repaint(), this.$.gizmosView.scale = e;
+			e = Editor.Math.clamp( e, this.$.grid.hticks.minValueScale, this.$.grid.hticks.maxValueScale );
+			this.scale = e;
+			this.$.grid.xAxisScaleAt( i.offsetX, e );
+			this.$.grid.yAxisScaleAt( i.offsetY, e );
+			this.$.grid.repaint();
+			this.$.gizmosView.scale = e;
 
 			var n = this.$.grid.xDirection * this.$.grid.xAxisOffset;
 			var t = this.$.grid.yDirection * this.$.grid.yAxisOffset;
@@ -216,8 +225,8 @@
 			this.$.graph.style.transform = "matrix(" +
 				this.$.grid.xAxisScale + ", 0, 0, " +
 				this.$.grid.yAxisScale + ", " +
-				(n - 0.5 * this.$.graph.offsetWidth + 0.5 * this.$.grid.xAxisScale * this.$.graph.offsetWidth) + ", " +
-				(t - 0.5 * this.$.graph.offsetHeight + 0.5 * this.$.grid.yAxisScale * this.$.graph.offsetHeight) + ")";
+				(n + 0.5 * this.$.graph.offsetWidth * (this.$.grid.xAxisScale - 1)) + ", " +
+				(t + 0.5 * this.$.graph.offsetHeight * (this.$.grid.yAxisScale - 1)) + ")";
 
 /*
 			var t = cc.director.getScene();
