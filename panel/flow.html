@@ -1,6 +1,6 @@
 <link rel="import" href="packages://ui-kit/widget/index.html">
 <link rel="import" href="flow-view.html">
-<dom-module id="editor-flow">
+<dom-module id="flow-editor">
 	<link rel="import" type="css" href="flow.css">
 	<template>
 		<editor-toolbar>
@@ -26,7 +26,7 @@
 			</div>
 		</editor-toolbar>
 		<div id= "border" class= "border flex-1">
-			<flow-view id="flowView" class="fit style-scope editor-flow" tabindex="-1"></flow-view>
+			<flow-view id="flowView" class="fit style-scope flow-editor" tabindex="-1"></flow-view>
 			<editor-loader id= "loader" mask text= "[[_T('SHARED.loading')]]"></editor-loader>
 			<div id= "dropArea" class= "fit" hidden on-dragover= "_onDragOver"></div>
 		</div>
