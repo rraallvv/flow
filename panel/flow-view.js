@@ -43,12 +43,14 @@
 
 				var n = i.$.grid.xDirection * i.$.grid.xAxisOffset;
 				var t = i.$.grid.yDirection * i.$.grid.yAxisOffset;
+				var s = i.$.grid.xAxisScale;
+				var r = i.$.grid.yAxisScale;
 
 				i.$.graph.style.transform = "matrix(" +
-					i.$.grid.xAxisScale + ", 0, 0, " +
-					i.$.grid.yAxisScale + ", " +
-					(n - 0.5 * i.$.graph.offsetWidth + 0.5 * i.$.grid.xAxisScale * i.$.graph.offsetWidth) + ", " +
-					(t - 0.5 * i.$.graph.offsetHeight + 0.5 * i.$.grid.yAxisScale * i.$.graph.offsetHeight) + ")";
+					s + ", 0, 0, " +
+					r + ", " +
+					Math.round(n + 0.5 * i.$.graph.offsetWidth * (s - 1)) + ", " +
+					Math.round(t + 0.5 * i.$.graph.offsetHeight * (r - 1)) + ")";
 			}, 100 );
 			var e = cc.ContainerStrategy.extend({
 				apply: function( i, e ) {
@@ -156,12 +158,14 @@
 
 				var n = e.$.grid.xDirection * e.$.grid.xAxisOffset;
 				var t = e.$.grid.yDirection * e.$.grid.yAxisOffset;
+				var s = e.$.grid.xAxisScale;
+				var r = e.$.grid.yAxisScale;
 
 				e.$.graph.style.transform = "matrix(" +
-					e.$.grid.xAxisScale + ", 0, 0, " +
-					e.$.grid.yAxisScale + ", " +
-					Math.round(n - 0.5 * e.$.graph.offsetWidth + 0.5 * e.$.grid.xAxisScale * e.$.graph.offsetWidth) + ", " +
-					Math.round(t - 0.5 * e.$.graph.offsetHeight + 0.5 * e.$.grid.yAxisScale * e.$.graph.offsetHeight) + ")";
+					s + ", 0, 0, " +
+					r + ", " +
+					Math.round(n + 0.5 * e.$.graph.offsetWidth * (s - 1)) + ", " +
+					Math.round(t + 0.5 * e.$.graph.offsetHeight * (r - 1)) + ")";
 /*
 				var o = cc.director.getScene();
 				o.setPosition( cc.v2( e.$.grid.xDirection * e.$.grid.xAxisOffset, e.$.grid.yDirection * e.$.grid.yAxisOffset ) ), cc.engine.repaintInEditMode();
@@ -217,12 +221,14 @@
 
 			var n = this.$.grid.xDirection * this.$.grid.xAxisOffset;
 			var t = this.$.grid.yDirection * this.$.grid.yAxisOffset;
+			var s = this.$.grid.xAxisScale;
+			var r = this.$.grid.yAxisScale;
 
 			this.$.graph.style.transform = "matrix(" +
-				this.$.grid.xAxisScale + ", 0, 0, " +
-				this.$.grid.yAxisScale + ", " +
-				(n + 0.5 * this.$.graph.offsetWidth * (this.$.grid.xAxisScale - 1)) + ", " +
-				(t + 0.5 * this.$.graph.offsetHeight * (this.$.grid.yAxisScale - 1)) + ")";
+				s + ", 0, 0, " +
+				r + ", " +
+				Math.round(n + 0.5 * this.$.graph.offsetWidth * (s - 1)) + ", " +
+				Math.round(t + 0.5 * this.$.graph.offsetHeight * (r - 1)) + ")";
 
 /*
 			var t = cc.director.getScene();
