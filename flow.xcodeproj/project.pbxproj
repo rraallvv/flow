@@ -10,7 +10,22 @@
 		E41A76421D15D60D007EAC15 /* icon */ = {isa = PBXFileReference; lastKnownFileType = folder; path = icon; sourceTree = "<group>"; };
 		E41A76431D15D60D007EAC15 /* main.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = main.js; sourceTree = "<group>"; };
 		E41A76441D15D60D007EAC15 /* package.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = package.json; sourceTree = "<group>"; };
-		E41A76451D15D60D007EAC15 /* panel */ = {isa = PBXFileReference; lastKnownFileType = folder; path = panel; sourceTree = "<group>"; };
+		E488D8361D26223D00008B64 /* flow-view.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; name = "flow-view.css"; path = "panel/flow-view.css"; sourceTree = "<group>"; };
+		E488D8371D26223D00008B64 /* flow-view.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = "flow-view.html"; path = "panel/flow-view.html"; sourceTree = "<group>"; };
+		E488D8381D26223D00008B64 /* flow-view.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = "flow-view.js"; path = "panel/flow-view.js"; sourceTree = "<group>"; };
+		E488D8391D26223D00008B64 /* flow.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; name = flow.css; path = panel/flow.css; sourceTree = "<group>"; };
+		E488D83A1D26223D00008B64 /* flow.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = flow.html; path = panel/flow.html; sourceTree = "<group>"; };
+		E488D83B1D26223D00008B64 /* flow.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = flow.js; path = panel/flow.js; sourceTree = "<group>"; };
+		E488D83C1D26223D00008B64 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = panel/icon.png; sourceTree = "<group>"; };
+		E488D83E1D26225900008B64 /* flow-examples.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = "flow-examples.js"; path = "panel/flow-graph/flow-examples.js"; sourceTree = "<group>"; };
+		E488D83F1D26225900008B64 /* flow-graph.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; name = "flow-graph.css"; path = "panel/flow-graph/flow-graph.css"; sourceTree = "<group>"; };
+		E488D8401D26225900008B64 /* flow-graph.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = "flow-graph.html"; path = "panel/flow-graph/flow-graph.html"; sourceTree = "<group>"; };
+		E488D8411D26225900008B64 /* flow-graph.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = "flow-graph.js"; path = "panel/flow-graph/flow-graph.js"; sourceTree = "<group>"; };
+		E488D8421D26225900008B64 /* flow-node.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = "flow-node.js"; path = "panel/flow-graph/flow-node.js"; sourceTree = "<group>"; };
+		E488D8431D26225900008B64 /* flow-types.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = "flow-types.js"; path = "panel/flow-graph/flow-types.js"; sourceTree = "<group>"; };
+		E488D8441D26225900008B64 /* flow-ui.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = "flow-ui.js"; path = "panel/flow-graph/flow-ui.js"; sourceTree = "<group>"; };
+		E488D8451D26225900008B64 /* flow-widget.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = "flow-widget.js"; path = "panel/flow-graph/flow-widget.js"; sourceTree = "<group>"; };
+		E488D8461D26225900008B64 /* flow-wire.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = "flow-wire.js"; path = "panel/flow-graph/flow-wire.js"; sourceTree = "<group>"; };
 		E492EA6A1D2394BB00C72D34 /* widget */ = {isa = PBXFileReference; lastKnownFileType = folder; path = widget; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -18,12 +33,43 @@
 		E457C6831CEB9D6D00BFBE0D = {
 			isa = PBXGroup;
 			children = (
+				E488D8351D26223000008B64 /* panel */,
 				E41A76421D15D60D007EAC15 /* icon */,
-				E41A76451D15D60D007EAC15 /* panel */,
 				E492EA6A1D2394BB00C72D34 /* widget */,
 				E41A76431D15D60D007EAC15 /* main.js */,
 				E41A76441D15D60D007EAC15 /* package.json */,
 			);
+			sourceTree = "<group>";
+		};
+		E488D8351D26223000008B64 /* panel */ = {
+			isa = PBXGroup;
+			children = (
+				E488D83D1D26224200008B64 /* flow-graph */,
+				E488D8361D26223D00008B64 /* flow-view.css */,
+				E488D8371D26223D00008B64 /* flow-view.html */,
+				E488D8381D26223D00008B64 /* flow-view.js */,
+				E488D8391D26223D00008B64 /* flow.css */,
+				E488D83A1D26223D00008B64 /* flow.html */,
+				E488D83B1D26223D00008B64 /* flow.js */,
+				E488D83C1D26223D00008B64 /* icon.png */,
+			);
+			name = panel;
+			sourceTree = "<group>";
+		};
+		E488D83D1D26224200008B64 /* flow-graph */ = {
+			isa = PBXGroup;
+			children = (
+				E488D83E1D26225900008B64 /* flow-examples.js */,
+				E488D83F1D26225900008B64 /* flow-graph.css */,
+				E488D8401D26225900008B64 /* flow-graph.html */,
+				E488D8411D26225900008B64 /* flow-graph.js */,
+				E488D8421D26225900008B64 /* flow-node.js */,
+				E488D8431D26225900008B64 /* flow-types.js */,
+				E488D8441D26225900008B64 /* flow-ui.js */,
+				E488D8451D26225900008B64 /* flow-widget.js */,
+				E488D8461D26225900008B64 /* flow-wire.js */,
+			);
+			name = "flow-graph";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
