@@ -160,8 +160,8 @@
 				e.$.graph.style.transform = "matrix(" +
 					e.$.grid.xAxisScale + ", 0, 0, " +
 					e.$.grid.yAxisScale + ", " +
-					(n - 0.5 * e.$.graph.offsetWidth + 0.5 * e.$.grid.xAxisScale * e.$.graph.offsetWidth) + ", " +
-					(t - 0.5 * e.$.graph.offsetHeight + 0.5 * e.$.grid.yAxisScale * e.$.graph.offsetHeight) + ")";
+					Math.round(n - 0.5 * e.$.graph.offsetWidth + 0.5 * e.$.grid.xAxisScale * e.$.graph.offsetWidth) + ", " +
+					Math.round(t - 0.5 * e.$.graph.offsetHeight + 0.5 * e.$.grid.yAxisScale * e.$.graph.offsetHeight) + ")";
 /*
 				var o = cc.director.getScene();
 				o.setPosition( cc.v2( e.$.grid.xDirection * e.$.grid.xAxisOffset, e.$.grid.yDirection * e.$.grid.yAxisOffset ) ), cc.engine.repaintInEditMode();
