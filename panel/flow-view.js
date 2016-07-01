@@ -41,16 +41,13 @@
 					i.$.gizmosView.sceneToPixel = i.sceneToPixel.bind( i ), i.$.gizmosView.worldToPixel = i.worldToPixel.bind( i ), i.$.gizmosView.pixelToScene = i.pixelToScene.bind( i ), i.$.gizmosView.pixelToWorld = i.pixelToWorld.bind( i ), i._resize();
 				}));
 
-				var n = i.$.grid.xDirection * i.$.grid.xAxisOffset;
-				var t = i.$.grid.yDirection * i.$.grid.yAxisOffset;
 				var s = i.$.grid.xAxisScale;
 				var r = i.$.grid.yAxisScale;
+				var n = i.$.grid.xDirection * i.$.grid.xAxisOffset;
+				var t = i.$.grid.yDirection * i.$.grid.yAxisOffset;
 
-				i.$.graph.style.transform = "matrix(" +
-					s + ", 0, 0, " +
-					r + ", " +
-					Math.round(n + 0.5 * i.$.graph.offsetWidth * (s - 1)) + ", " +
-					Math.round(t + 0.5 * i.$.graph.offsetHeight * (r - 1)) + ")";
+				i.$.graph.setTransform( s, r, n, t );
+
 			}, 100 );
 			var e = cc.ContainerStrategy.extend({
 				apply: function( i, e ) {
@@ -156,16 +153,12 @@
 			return 3 === i.which || 2 === i.which || this.movingGraph ? (i.stopPropagation(), this.style.cursor = "-webkit-grabbing", void Editor.UI.DomUtils.startDrag("-webkit-grabbing", i, function( i, t, n ) {
 				e.$.grid.pan( t, n ), e.$.grid.repaint();
 
-				var n = e.$.grid.xDirection * e.$.grid.xAxisOffset;
-				var t = e.$.grid.yDirection * e.$.grid.yAxisOffset;
 				var s = e.$.grid.xAxisScale;
 				var r = e.$.grid.yAxisScale;
+				var n = e.$.grid.xDirection * e.$.grid.xAxisOffset;
+				var t = e.$.grid.yDirection * e.$.grid.yAxisOffset;
 
-				e.$.graph.style.transform = "matrix(" +
-					s + ", 0, 0, " +
-					r + ", " +
-					Math.round(n + 0.5 * e.$.graph.offsetWidth * (s - 1)) + ", " +
-					Math.round(t + 0.5 * e.$.graph.offsetHeight * (r - 1)) + ")";
+				e.$.graph.setTransform( s, r, n, t );
 /*
 				var o = cc.director.getScene();
 				o.setPosition( cc.v2( e.$.grid.xDirection * e.$.grid.xAxisOffset, e.$.grid.yDirection * e.$.grid.yAxisOffset ) ), cc.engine.repaintInEditMode();
@@ -219,16 +212,12 @@
 			this.$.grid.repaint();
 			this.$.gizmosView.scale = e;
 
-			var n = this.$.grid.xDirection * this.$.grid.xAxisOffset;
-			var t = this.$.grid.yDirection * this.$.grid.yAxisOffset;
 			var s = this.$.grid.xAxisScale;
 			var r = this.$.grid.yAxisScale;
+			var n = this.$.grid.xDirection * this.$.grid.xAxisOffset;
+			var t = this.$.grid.yDirection * this.$.grid.yAxisOffset;
 
-			this.$.graph.style.transform = "matrix(" +
-				s + ", 0, 0, " +
-				r + ", " +
-				Math.round(n + 0.5 * this.$.graph.offsetWidth * (s - 1)) + ", " +
-				Math.round(t + 0.5 * this.$.graph.offsetHeight * (r - 1)) + ")";
+			this.$.graph.setTransform( s, r, n, t );
 
 /*
 			var t = cc.director.getScene();
