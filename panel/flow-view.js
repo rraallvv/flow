@@ -175,10 +175,11 @@
 				var e = !1,
 					t = Editor.Selection.curSelection("node");
 				(i.metaKey || i.ctrlKey) && (e = !0);
-				var n = i.offsetX,
-					o = i.offsetY;
+				var b = this.getBoundingClientRect();
+				var n = i.clientX - b.left,
+					o = i.clientY - b.top;
 				// Editor.log(n, o);
-/*
+
 				Editor.UI.DomUtils.startDrag("default", i, function( i, s, r, c, d ) {
 					var a = c * c + d * d;
 					if ( !(4 > a) ) {
@@ -206,7 +207,6 @@
 						Editor.Selection.confirm(), this.$.gizmosView.fadeoutSelectRect();
 					}
 				}.bind( this ) );
-*/
 			}
 		},
 		_onMouseWheel: function( i ) {
