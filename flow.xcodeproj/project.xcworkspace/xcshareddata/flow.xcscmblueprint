@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "2284796F44446B2242D5828147E3E368C5417A8D",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "8D330F43F269FF454528402CBA014DBF8B66C413" : 0,
+    "2284796F44446B2242D5828147E3E368C5417A8D" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "DA22ADC0-C74D-46F3-B3CF-157C83D85C81",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "8D330F43F269FF454528402CBA014DBF8B66C413" : "flow\/panel\/flow-graph\/",
+    "2284796F44446B2242D5828147E3E368C5417A8D" : "flow\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "flow",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "flow.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/rraallvv\/flow",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2284796F44446B2242D5828147E3E368C5417A8D"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/rraallvv\/flow-graph",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8D330F43F269FF454528402CBA014DBF8B66C413"
+    }
+  ]
+}
