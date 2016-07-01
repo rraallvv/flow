@@ -172,9 +172,8 @@
 		},
 		_onMouseDown: function( i ) {
 			if ( i.stopPropagation(), 1 === i.which ) {
-				var e = !1,
-					t = Editor.Selection.curSelection("node");
-				(i.metaKey || i.ctrlKey) && (e = !0);
+				var t = Editor.Selection.curSelection("node");
+				(i.metaKey || i.ctrlKey);
 				var b = this.getBoundingClientRect();
 				var n = i.clientX - b.left,
 					o = i.clientY - b.top;
@@ -187,14 +186,8 @@
 							l = o;
 						0 > c && (h += c, c = -c), 0 > d && (l += d, d = -d), this.$.gizmosView.updateSelectRect( h, l, c, d );
 						var g, u, f = _Scene.rectHitTest( h, l, c, d );
-						if ( e ) {
-							for ( u = t.slice(), g = 0; g < f.length; ++g ) {
-								-1 === u.indexOf( f[ g ].uuid ) && u.push( f[ g ].uuid );
-							}
-						} else {
-							for ( u = [], g = 0; g < f.length; ++g ) {
-								u.push( f[ g ].uuid );
-							}
+						for ( u = t.slice(), g = 0; g < f.length; ++g ) {
+							-1 === u.indexOf( f[ g ].uuid ) && u.push( f[ g ].uuid );
 						}
 						Editor.Selection.select("node", u, !0, !1 );
 					}
@@ -202,7 +195,7 @@
 					var a = c * c + d * d;
 					if ( 4 > a ) {
 						var h = _Scene.hitTest( n, o );
-						e ? h && (-1 === t.indexOf( h.uuid ) ? Editor.Selection.select("node", h.uuid, !1, !0 ) : Editor.Selection.unselect("node", h.uuid, !0 )) : h ? Editor.Selection.select("node", h.uuid, !0, !0 ) : Editor.Selection.clear("node");
+						h && (-1 === t.indexOf( h.uuid ) ? Editor.Selection.select("node", h.uuid, !1, !0 ) : Editor.Selection.unselect("node", h.uuid, !0 ));
 					} else {
 						Editor.Selection.confirm(), this.$.gizmosView.fadeoutSelectRect();
 					}
