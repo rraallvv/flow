@@ -1,3 +1,6 @@
 [submodule "panel/flow-graph"]
 	path = panel/flow-graph
 	url = https://github.com/rraallvv/flow-graph
+[submodule "panel/litegraph"]
+	path = panel/litegraph
+	url = https://github.com/rraallvv/litegraph
