@@ -1,6 +1,9 @@
 <link rel="import" href="packages://flow/widget/flow-grid.html">
 <link rel="import" href="app://editor/page/gizmos/view/svg-gizmos-view.html">
-<link rel="import" href="flow-graph/flow-graph/flow-graph.html">
+
+<!--<link rel="import" href="flow-graph/flow-graph/flow-graph.html">-->
+<link rel="import" href="litegraph/src/litegraph.html">
+
 <dom-module id="flow-view">
 	<link rel="import" type="css" href="flow-view.css">
 	<template>
@@ -18,7 +21,10 @@
 			<editor-button on-click="_onSaveEditMode">[[_T('SHARED.save')]]</editor-button>
 			<editor-button on-click="_onCloseEditMode">[[_T('SHARED.close')]]</editor-button>
 		</div>
-		<flow-graph id="graph"></flow-graph>
+
+		<!--<flow-graph id="graph"></flow-graph>-->
+		<lite-graph id="graph"></lite-graph>
+
 	</template>
 	<script>Editor.require("app://editor/page/gizmos/init.js");</script>
 	<script src="flow-view.js"></script>
