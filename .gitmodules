@@ -4,3 +4,6 @@
 [submodule "panel/litegraph"]
 	path = panel/litegraph
 	url = https://github.com/rraallvv/litegraph
+[submodule "panel/shader-graph"]
+	path = panel/shader-graph
+	url = https://github.com/rraallvv/shader-graph
