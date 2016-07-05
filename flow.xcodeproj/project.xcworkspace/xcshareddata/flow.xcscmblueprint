@@ -4,15 +4,17 @@
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
-    "1AFBE231D3ED5AF41F1300F865D44E2167FEFA54" : 0,
+    "6CC6766BF88319B14FAAEF1AAB6E1B268DC4FE75" : 0,
+    "2284796F44446B2242D5828147E3E368C5417A8D" : 0,
     "8D330F43F269FF454528402CBA014DBF8B66C413" : 0,
-    "2284796F44446B2242D5828147E3E368C5417A8D" : 0
+    "1AFBE231D3ED5AF41F1300F865D44E2167FEFA54" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "DA22ADC0-C74D-46F3-B3CF-157C83D85C81",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "1AFBE231D3ED5AF41F1300F865D44E2167FEFA54" : "flow\/panel\/litegraph\/",
+    "6CC6766BF88319B14FAAEF1AAB6E1B268DC4FE75" : "flow\/panel\/shader-graph\/",
+    "2284796F44446B2242D5828147E3E368C5417A8D" : "flow\/",
     "8D330F43F269FF454528402CBA014DBF8B66C413" : "flow\/panel\/flow-graph\/",
-    "2284796F44446B2242D5828147E3E368C5417A8D" : "flow\/"
+    "1AFBE231D3ED5AF41F1300F865D44E2167FEFA54" : "flow\/panel\/litegraph\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "flow",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
@@ -27,6 +29,11 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/rraallvv\/flow",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2284796F44446B2242D5828147E3E368C5417A8D"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/rraallvv\/shader-graph",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6CC6766BF88319B14FAAEF1AAB6E1B268DC4FE75"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/rraallvv\/flow-graph",

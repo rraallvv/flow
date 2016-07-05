@@ -10,6 +10,10 @@
 		E41A76421D15D60D007EAC15 /* icon */ = {isa = PBXFileReference; lastKnownFileType = folder; path = icon; sourceTree = "<group>"; };
 		E41A76431D15D60D007EAC15 /* main.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = main.js; sourceTree = "<group>"; };
 		E41A76441D15D60D007EAC15 /* package.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = package.json; sourceTree = "<group>"; };
+		E42640A71D2B81B80022702E /* shader-graph.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = "shader-graph.html"; path = "panel/shader-graph/editor/shader-graph.html"; sourceTree = "<group>"; };
+		E42640A81D2B81CB0022702E /* editor.jsx */ = {isa = PBXFileReference; lastKnownFileType = text; name = editor.jsx; path = "panel/shader-graph/editor/js/editor.jsx"; sourceTree = "<group>"; };
+		E42640A91D2B81DD0022702E /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; name = images; path = "panel/shader-graph/editor/images"; sourceTree = "<group>"; };
+		E42640AA1D2B81EB0022702E /* css */ = {isa = PBXFileReference; lastKnownFileType = folder; name = css; path = "panel/shader-graph/editor/css"; sourceTree = "<group>"; };
 		E492EA6A1D2394BB00C72D34 /* widget */ = {isa = PBXFileReference; lastKnownFileType = folder; path = widget; sourceTree = "<group>"; };
 		E4EE05571D28B34A00964AFA /* flow-view.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; name = "flow-view.css"; path = "panel/flow-view.css"; sourceTree = "<group>"; };
 		E4EE05581D28B34A00964AFA /* flow-view.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = "flow-view.html"; path = "panel/flow-view.html"; sourceTree = "<group>"; };
@@ -40,6 +44,17 @@
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
+		E42640A61D2B818E0022702E /* shader-graph */ = {
+			isa = PBXGroup;
+			children = (
+				E42640AA1D2B81EB0022702E /* css */,
+				E42640A91D2B81DD0022702E /* images */,
+				E42640A81D2B81CB0022702E /* editor.jsx */,
+				E42640A71D2B81B80022702E /* shader-graph.html */,
+			);
+			name = "shader-graph";
+			sourceTree = "<group>";
+		};
 		E457C6831CEB9D6D00BFBE0D = {
 			isa = PBXGroup;
 			children = (
@@ -54,6 +69,7 @@
 		E4EE05561D28B33800964AFA /* Panel */ = {
 			isa = PBXGroup;
 			children = (
+				E42640A61D2B818E0022702E /* shader-graph */,
 				E4EE05691D28B37400964AFA /* flow-graph */,
 				E4EE055E1D28B34F00964AFA /* litegraph */,
 				E4EE05571D28B34A00964AFA /* flow-view.css */,
