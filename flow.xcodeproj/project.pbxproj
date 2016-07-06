@@ -11,7 +11,7 @@
 		E41A76431D15D60D007EAC15 /* main.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = main.js; sourceTree = "<group>"; };
 		E41A76441D15D60D007EAC15 /* package.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = package.json; sourceTree = "<group>"; };
 		E42640A71D2B81B80022702E /* shader-graph.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = "shader-graph.html"; path = "panel/shader-graph/editor/shader-graph.html"; sourceTree = "<group>"; };
-		E42640A81D2B81CB0022702E /* editor.jsx */ = {isa = PBXFileReference; lastKnownFileType = text; name = editor.jsx; path = "panel/shader-graph/editor/js/editor.jsx"; sourceTree = "<group>"; };
+		E42640A81D2B81CB0022702E /* editor.jsx */ = {isa = PBXFileReference; lastKnownFileType = text; name = editor.jsx; path = "panel/shader-graph/editor/js/editor.jsx"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.javascript; };
 		E42640A91D2B81DD0022702E /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; name = images; path = "panel/shader-graph/editor/images"; sourceTree = "<group>"; };
 		E42640AA1D2B81EB0022702E /* css */ = {isa = PBXFileReference; lastKnownFileType = folder; name = css; path = "panel/shader-graph/editor/css"; sourceTree = "<group>"; };
 		E492EA6A1D2394BB00C72D34 /* widget */ = {isa = PBXFileReference; lastKnownFileType = folder; path = widget; sourceTree = "<group>"; };
