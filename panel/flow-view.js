@@ -19,6 +19,9 @@
 				value: ""
 			}
 		},
+		shaderGraph: function() {
+			return this.$.graph;
+		},
 		_policy: null,
 		ready: function() {
 			var i = [ 0, 1, 1 ],
@@ -72,25 +75,13 @@
 			this.$.grid.yAxisSync( e, t );
 			this.$.grid.repaint();
 			this.$.gizmosView.scale = t;
-			/*
-			var n = [ "_position", "_rotationX", "_rotationY", "_scaleX", "_scaleY", "_skewX", "_skewY" ];
-			n.forEach(function( i ) {
-				var e = cc.Class.attr( cc.Scene, i );
-				e = cc.js.addon({
-					serializable: !1
-				}, e ), cc.Class.attr( cc.Scene.prototype, i, e );
-			});
-			var o = cc.director.getScene();
-			o.scale = cc.v2( this.$.grid.xAxisScale, this.$.grid.yAxisScale ), o.setPosition( cc.v2( this.$.grid.xDirection * this.$.grid.xAxisOffset, this.$.grid.yDirection * this.$.grid.yAxisOffset ) ), cc.engine.repaintInEditMode();
-			*/
 		},
 		_resize: function() {
 			var i = this.getBoundingClientRect();
-			if ( (0 !== i.width || 0 !== i.height) && (this.$.grid.resize(), this.$.grid.repaint(), this.$.gizmosView.resize(), cc.engine.isInitialized) ) {
-/*
-				var e = cc.director.getScene();
-				e && (cc.view.setCanvasSize( i.width, i.height ), cc.view.setDesignResolutionSize( i.width, i.height, this._policy || cc.ResolutionPolicy.SHOW_ALL ), e.scale = cc.v2( this.$.grid.xAxisScale, this.$.grid.yAxisScale ), e.setPosition( cc.v2( this.$.grid.xDirection * this.$.grid.xAxisOffset, this.$.grid.yDirection * this.$.grid.yAxisOffset ) ), cc.engine.repaintInEditMode());
-*/
+			if (0 !== i.width || 0 !== i.height) {
+				this.$.grid.resize();
+				this.$.grid.repaint();
+				this.$.gizmosView.resize();
 			}
 		},
 		_initEngine: function( i ) {
@@ -149,6 +140,9 @@
 			return cc.v2( e.convertToWorldSpaceAR( this.pixelToScene( i ) ) );
 		},
 		_onCaptureMousedown: function( i ) {
+			if (i.target.id !== "canvas" && i.target.id !== "svg") {
+				return;
+			}
 			var e = this;
 			return 3 === i.which || 2 === i.which || this.movingGraph ? (i.stopPropagation(), this.style.cursor = "-webkit-grabbing", void Editor.UI.DomUtils.startDrag("-webkit-grabbing", i, function( i, t, n ) {
 				e.$.grid.pan( t, n ), e.$.grid.repaint();
@@ -159,15 +153,15 @@
 				var t = e.$.grid.yDirection * e.$.grid.yAxisOffset;
 
 				e.$.graph.setTransform( s, r, n, t );
-/*
-				var o = cc.director.getScene();
-				o.setPosition( cc.v2( e.$.grid.xDirection * e.$.grid.xAxisOffset, e.$.grid.yDirection * e.$.grid.yAxisOffset ) ), cc.engine.repaintInEditMode();
-*/
+
 			}, function( i ) {
 				i.shiftKey ? e.style.cursor = "-webkit-grab" : e.style.cursor = "";
 			})) : void 0;
 		},
 		_onMouseDown: function( i ) {
+			if (i.target.id !== "canvas" && i.target.id !== "svg") {
+				return;
+			}
 			if ( i.stopPropagation(), 1 === i.which ) {
 				var t = Editor.Selection.curSelection("node");
 				(i.metaKey || i.ctrlKey);
@@ -218,24 +212,10 @@
 			var t = this.$.grid.yDirection * this.$.grid.yAxisOffset;
 
 			this.$.graph.setTransform( s, r, n, t );
-
-/*
-			var t = cc.director.getScene();
-			t.scale = cc.v2( this.$.grid.xAxisScale, this.$.grid.yAxisScale ), t.setPosition( cc.v2( this.$.grid.xDirection * this.$.grid.xAxisOffset, this.$.grid.yDirection * this.$.grid.yAxisOffset ) ), cc.engine.repaintInEditMode();
-*/
 		},
 		_onMouseMove: function( i ) {
-			if ( i.stopPropagation(), !this.movingGraph ) {
-				// Editor.log( i.offsetX, i.offsetY );
-/*
-				var e = _Scene.hitTest( i.offsetX, i.offsetY ),
-					t = e ? e.uuid : null;
-				Editor.Selection.hover("node", t );
-*/
-			}
 		},
 		_onMouseLeave: function() {
-//			Editor.Selection.hover("node", null );
 		},
 		_onKeyDown: function( i ) {
 			i.stopPropagation(), "space" === Editor.KeyCode( i.which ) && (this.style.cursor = "-webkit-grab", this.movingGraph = !0);
@@ -250,10 +230,8 @@
 			return i ? Editor.url("packages://flow/icon/" + i + ".png") : "";
 		},
 		_onSaveEditMode: function() {
-//			_Scene.EditMode.save();
 		},
 		_onCloseEditMode: function() {
-//			_Scene.EditMode.pop();
 		}
 	});
 })();
