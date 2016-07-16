@@ -1,5 +1,7 @@
 <link rel="import" href="packages://ui-kit/widget/index.html">
 <link rel="import" href="flow-view.html">
+<link rel="import" href="shader-graph/preview/cocos-preview.html">
+
 <dom-module id="flow-editor">
 	<link rel="import" type="css" href="flow.css">
 	<template>
@@ -25,6 +27,7 @@
 				</editor-button>
 			</div>
 		</editor-toolbar>
+		<cocos-preview id="preview"></cocos-preview>
 		<div id= "border" class= "border flex-1">
 			<flow-view id="flowView" class="fit style-scope flow-editor" tabindex="-1"></flow-view>
 			<editor-loader id= "loader" mask text= "[[_T('SHARED.loading')]]"></editor-loader>

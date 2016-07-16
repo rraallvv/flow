@@ -10,11 +10,8 @@
 		E41A76421D15D60D007EAC15 /* icon */ = {isa = PBXFileReference; lastKnownFileType = folder; path = icon; sourceTree = "<group>"; };
 		E41A76431D15D60D007EAC15 /* main.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = main.js; sourceTree = "<group>"; };
 		E41A76441D15D60D007EAC15 /* package.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = package.json; sourceTree = "<group>"; };
-		E42640A71D2B81B80022702E /* shader-graph.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = "shader-graph.html"; path = "panel/shader-graph/editor/shader-graph.html"; sourceTree = "<group>"; };
-		E42640A81D2B81CB0022702E /* editor.jsx */ = {isa = PBXFileReference; lastKnownFileType = text; name = editor.jsx; path = "panel/shader-graph/editor/js/editor.jsx"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.javascript; };
-		E42640A91D2B81DD0022702E /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; name = images; path = "panel/shader-graph/editor/images"; sourceTree = "<group>"; };
-		E42640AA1D2B81EB0022702E /* css */ = {isa = PBXFileReference; lastKnownFileType = folder; name = css; path = "panel/shader-graph/editor/css"; sourceTree = "<group>"; };
 		E492EA6A1D2394BB00C72D34 /* widget */ = {isa = PBXFileReference; lastKnownFileType = folder; path = widget; sourceTree = "<group>"; };
+		E4CA7DEC1D39ED26002A4B4F /* editor */ = {isa = PBXFileReference; lastKnownFileType = folder; name = editor; path = "panel/shader-graph/editor"; sourceTree = "<group>"; };
 		E4EE05571D28B34A00964AFA /* flow-view.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; name = "flow-view.css"; path = "panel/flow-view.css"; sourceTree = "<group>"; };
 		E4EE05581D28B34A00964AFA /* flow-view.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = "flow-view.html"; path = "panel/flow-view.html"; sourceTree = "<group>"; };
 		E4EE05591D28B34A00964AFA /* flow-view.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = "flow-view.js"; path = "panel/flow-view.js"; sourceTree = "<group>"; };
@@ -47,10 +44,7 @@
 		E42640A61D2B818E0022702E /* shader-graph */ = {
 			isa = PBXGroup;
 			children = (
-				E42640AA1D2B81EB0022702E /* css */,
-				E42640A91D2B81DD0022702E /* images */,
-				E42640A81D2B81CB0022702E /* editor.jsx */,
-				E42640A71D2B81B80022702E /* shader-graph.html */,
+				E4CA7DEC1D39ED26002A4B4F /* editor */,
 			);
 			name = "shader-graph";
 			sourceTree = "<group>";

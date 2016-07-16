@@ -3,7 +3,7 @@
 
 <!--<link rel="import" href="flow-graph/flow-graph/flow-graph.html">-->
 <!--<link rel="import" href="litegraph/src/litegraph.html">-->
-<!--<link rel="import" href="shader-graph/editor/shader-graph.html">-->
+<link rel="import" href="shader-graph/editor/shader-graph.html">
 
 <dom-module id="flow-view">
 	<link rel="import" type="css" href="flow-view.css">
@@ -11,6 +11,12 @@
 		<style>
 			#engine-canvas {
 				position: absolute
+			}
+			.graph {
+				position: absolute;
+				display: flex;
+				justify-content: space-between;
+				border: solid 3px blue;
 			}
 		</style>
 		<flow-grid id="grid" class="fit"></flow-grid>
@@ -25,7 +31,7 @@
 
 		<!--<flow-graph id="graph"></flow-graph>-->
 		<!--<lite-graph id="graph"></lite-graph>-->
-		<!--<shader-graph id="graph"></shader-graph>-->
+		<shader-graph id="graph" class="graph"></shader-graph>
 		<!--<editor-webview src="packages://flow/panel/shader-graph/index.html" style="width: 1024px; height: 768px;"></editor-webview>-->
 
 	</template>
