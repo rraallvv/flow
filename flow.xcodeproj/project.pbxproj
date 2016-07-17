@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		E40F6DC51D3AE73300298593 /* old-editor */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "old-editor"; path = "panel/shader-graph/old-editor"; sourceTree = "<group>"; };
 		E41A76421D15D60D007EAC15 /* icon */ = {isa = PBXFileReference; lastKnownFileType = folder; path = icon; sourceTree = "<group>"; };
 		E41A76431D15D60D007EAC15 /* main.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = main.js; sourceTree = "<group>"; };
 		E41A76441D15D60D007EAC15 /* package.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = package.json; sourceTree = "<group>"; };
@@ -46,7 +45,6 @@
 			isa = PBXGroup;
 			children = (
 				E4CA7DEC1D39ED26002A4B4F /* editor */,
-				E40F6DC51D3AE73300298593 /* old-editor */,
 			);
 			name = "shader-graph";
 			sourceTree = "<group>";
