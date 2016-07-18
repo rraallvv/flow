@@ -102,9 +102,9 @@
 			};
 
 			shaderGraph.onConnectionReleased = function(e) {
-				//menu.toggleMenuOn();
-				//menu.positionMenu(e);
-				//return false;
+				menu.toggleMenuOn();
+				menu.positionMenu(e);
+				return false;
 			};
 			
 			//*
