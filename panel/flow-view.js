@@ -162,30 +162,6 @@
 			if (i.target.id !== "canvas" && i.target.id !== "svg") {
 				return;
 			}
-			if ( i.stopPropagation(), 1 === i.which ) {
-				var t = Editor.Selection.curSelection("node");
-				(i.metaKey || i.ctrlKey);
-				var b = this.getBoundingClientRect();
-				var n = i.clientX - b.left,
-					o = i.clientY - b.top;
-				// Editor.log(n, o);
-
-				Editor.UI.DomUtils.startDrag("default", i, function( i, s, r, c, d ) {
-					var a = c * c + d * d;
-					if ( !(4 > a) ) {
-						var h = n,
-							l = o;
-						0 > c && (h += c, c = -c);
-						0 > d && (l += d, d = -d);
-						this.$.gizmosView.updateSelectRect( h, l, c, d );
-					}
-				}.bind( this ), function( i, s, r, c, d ) {
-					var a = c * c + d * d;
-					if ( !(4 > a) ) {
-						this.$.gizmosView.fadeoutSelectRect();
-					}
-				}.bind( this ) );
-			}
 		},
 		_onMouseWheel: function( i ) {
 			i.stopPropagation();
@@ -208,6 +184,33 @@
 			this.$.graph.setTransform( s, r, n, t );
 		},
 		_onMouseMove: function( i ) {
+			if (i.which === 1 && !this.selecting) {
+				i.stopPropagation();
+				this.selecting = true;
+
+				(i.metaKey || i.ctrlKey);
+				var b = this.getBoundingClientRect();
+				var n = i.clientX - b.left,
+					o = i.clientY - b.top;
+				// Editor.log(n, o);
+
+				Editor.UI.DomUtils.startDrag("default", i, function( i, s, r, c, d ) {
+					var a = c * c + d * d;
+					if ( !(4 > a) ) {
+						var h = n,
+							l = o;
+						0 > c && (h += c, c = -c);
+						0 > d && (l += d, d = -d);
+						this.$.gizmosView.updateSelectRect( h, l, c, d );
+					}
+				}.bind( this ), function( i, s, r, c, d ) {
+					var a = c * c + d * d;
+					if ( !(4 > a) ) {
+						this.$.gizmosView.fadeoutSelectRect();
+					}
+					this.selecting = false;
+				}.bind( this ) );
+			}
 		},
 		_onMouseLeave: function() {
 		},
