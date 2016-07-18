@@ -141,7 +141,9 @@
 			return cc.v2( e.convertToWorldSpaceAR( this.pixelToScene( i ) ) );
 		},
 		_onCaptureMousedown: function( i ) {
-			if (i.target.id !== "canvas" && i.target.id !== "svg") {
+			if (i.target.id !== "canvas" &&
+					i.target.id !== "graph" &&
+					i.target.id !== "svg") {
 				return;
 			}
 			var e = this;
