@@ -81,6 +81,7 @@
 			if (0 !== i.width || 0 !== i.height) {
 				this.$.grid.resize();
 				this.$.grid.repaint();
+				this.$.graph.resize(i.width, i.height);
 				this.$.gizmosView.resize();
 			}
 		},
