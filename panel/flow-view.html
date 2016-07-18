@@ -8,17 +8,6 @@
 <dom-module id="flow-view">
 	<link rel="import" type="css" href="flow-view.css">
 	<template>
-		<style>
-			#engine-canvas {
-				position: absolute
-			}
-			.graph {
-				position: absolute;
-				display: flex;
-				justify-content: space-between;
-				border: solid 3px blue;
-			}
-		</style>
 		<flow-grid id="grid" class="fit"></flow-grid>
 		<canvas id="engine-canvas"></canvas>
 		<pre>[[_T('SCENE.pan_hint')]]</pre>

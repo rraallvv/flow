@@ -17,7 +17,12 @@ pre {
 	top: 4px;
 	left: 7px;
 	z-index: 991;
-};
+}
+
 .overlaying-buttons editor-button {
 	margin-left: 3px;
+}
+
+#engine-canvas {
+	position: absolute
 }
