@@ -10,6 +10,7 @@
 		E41A76421D15D60D007EAC15 /* icon */ = {isa = PBXFileReference; lastKnownFileType = folder; path = icon; sourceTree = "<group>"; };
 		E41A76431D15D60D007EAC15 /* main.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = main.js; sourceTree = "<group>"; };
 		E41A76441D15D60D007EAC15 /* package.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = package.json; sourceTree = "<group>"; };
+		E47CC7F01D3C749B00CFDC6E /* menu */ = {isa = PBXFileReference; lastKnownFileType = folder; name = menu; path = "panel/shader-graph/menu"; sourceTree = "<group>"; };
 		E492EA6A1D2394BB00C72D34 /* widget */ = {isa = PBXFileReference; lastKnownFileType = folder; path = widget; sourceTree = "<group>"; };
 		E4CA7DEC1D39ED26002A4B4F /* editor */ = {isa = PBXFileReference; lastKnownFileType = folder; name = editor; path = "panel/shader-graph/editor"; sourceTree = "<group>"; };
 		E4EE05571D28B34A00964AFA /* flow-view.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; name = "flow-view.css"; path = "panel/flow-view.css"; sourceTree = "<group>"; };
@@ -45,6 +46,7 @@
 			isa = PBXGroup;
 			children = (
 				E4CA7DEC1D39ED26002A4B4F /* editor */,
+				E47CC7F01D3C749B00CFDC6E /* menu */,
 			);
 			name = "shader-graph";
 			sourceTree = "<group>";

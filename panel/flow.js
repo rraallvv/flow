@@ -51,11 +51,8 @@
 
 			var shaderGraph = this.$.flowView.shaderGraph();
 			var preview = this.$.preview;
-
-			// Build the context menu from the list of available nodes
-			/*
-			var nodeTypes = shaderGraph.nodeList();
-			menu.buildMenu(nodeTypes);
+			//*
+			var menu = this.$["context-menu"];
 
 			menu.onItemSelected = function(name) {
 				var pos = menu.getPosition();
@@ -68,11 +65,15 @@
 			menu.onToggleOff = function() {
 				shaderGraph.clearTempConnection();
 			};
-			*/
+			//*/
 
 			// Update the shader when the preview is loaded
 			preview.onload = function(){
-				shaderGraph.loadGraph(demos[1]);
+				// Build the context menu from the list of available nodes
+				var nodeTypes = shaderGraph.nodeList();
+				menu.buildMenu(nodeTypes);
+
+				//shaderGraph.loadGraph(demos[1]);
 				//shaderGraph.updateShader();
 			};
 
@@ -83,7 +84,7 @@
 				var source = document.getElementById("source");
 				source.innerHTML = ShaderGraph.Beautify(
 					optimize_glsl(shaderDef.fshader(), "2", "fs"),
-					//fs,
+					//shaderDef.fshader(),
 					{
 						"indent_size": 1,
 						"indent_char": '\t',
@@ -172,6 +173,7 @@
 					]
 				}
 			];
+			//*/
 
 			/*
 			var placeholder = document.getElementById("demos");

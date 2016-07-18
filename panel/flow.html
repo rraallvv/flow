@@ -1,6 +1,7 @@
 <link rel="import" href="packages://ui-kit/widget/index.html">
 <link rel="import" href="flow-view.html">
 <link rel="import" href="shader-graph/preview/cocos-preview.html">
+<link rel="import" href="shader-graph/menu/search-menu.html">
 
 <dom-module id="flow-editor">
 	<link rel="import" type="css" href="flow.css">
@@ -29,7 +30,8 @@
 		</editor-toolbar>
 		<cocos-preview id="preview"></cocos-preview>
 		<div id= "border" class= "border flex-1">
-			<flow-view id="flowView" class="fit style-scope flow-editor" tabindex="-1"></flow-view>
+			<flow-view id="flowView" class="fit style-scope flow-editor graph-container" tabindex="-1"></flow-view>
+			<search-menu id="context-menu" activate-for-class="graph-container" class="context-menu"></search-menu>
 			<editor-loader id= "loader" mask text= "[[_T('SHARED.loading')]]"></editor-loader>
 			<div id= "dropArea" class= "fit" hidden on-dragover= "_onDragOver"></div>
 		</div>
