@@ -175,20 +175,14 @@
 					if ( !(4 > a) ) {
 						var h = n,
 							l = o;
-						0 > c && (h += c, c = -c), 0 > d && (l += d, d = -d), this.$.gizmosView.updateSelectRect( h, l, c, d );
-						var g, u, f = _Scene.rectHitTest( h, l, c, d );
-						for ( u = t.slice(), g = 0; g < f.length; ++g ) {
-							-1 === u.indexOf( f[ g ].uuid ) && u.push( f[ g ].uuid );
-						}
-						Editor.Selection.select("node", u, !0, !1 );
+						0 > c && (h += c, c = -c);
+						0 > d && (l += d, d = -d);
+						this.$.gizmosView.updateSelectRect( h, l, c, d );
 					}
 				}.bind( this ), function( i, s, r, c, d ) {
 					var a = c * c + d * d;
-					if ( 4 > a ) {
-						var h = _Scene.hitTest( n, o );
-						h && (-1 === t.indexOf( h.uuid ) ? Editor.Selection.select("node", h.uuid, !1, !0 ) : Editor.Selection.unselect("node", h.uuid, !0 ));
-					} else {
-						Editor.Selection.confirm(), this.$.gizmosView.fadeoutSelectRect();
+					if ( !(4 > a) ) {
+						this.$.gizmosView.fadeoutSelectRect();
 					}
 				}.bind( this ) );
 			}
