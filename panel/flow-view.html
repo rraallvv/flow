@@ -21,7 +21,6 @@
 		</style>
 		<flow-grid id="grid" class="fit"></flow-grid>
 		<canvas id="engine-canvas"></canvas>
-		<svg-gizmos-view id="gizmosView" class="fit"></svg-gizmos-view>
 		<pre>[[_T('SCENE.pan_hint')]]</pre>
 		<div id="editButtons" class="overlaying-buttons layout horizontal center" hidden="[[!_inEditMode(mode)]]">
 			<img src="[[_editModeIcon(mode)]]">
@@ -34,6 +33,7 @@
 		<shader-graph id="graph" class="graph"></shader-graph>
 		<!--<editor-webview src="packages://flow/panel/shader-graph/index.html" style="width: 1024px; height: 768px;"></editor-webview>-->
 
+		<svg-gizmos-view id="gizmosView" class="fit"></svg-gizmos-view>
 	</template>
 	<script>Editor.require("app://editor/page/gizmos/init.js");</script>
 	<script src="flow-view.js"></script>
