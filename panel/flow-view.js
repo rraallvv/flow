@@ -159,8 +159,8 @@
 			})) : void 0;
 		},
 		_onMouseDown: function( i ) {
-			if (i.target.id !== "canvas" && i.target.id !== "svg") {
-				return;
+			if (i.target.id === "canvas") {
+				this.selecting = true;
 			}
 		},
 		_onMouseWheel: function( i ) {
@@ -184,9 +184,8 @@
 			this.$.graph.setTransform( s, r, n, t );
 		},
 		_onMouseMove: function( i ) {
-			if (i.which === 1 && !this.selecting) {
+			if (i.which === 1 && this.selecting) {
 				i.stopPropagation();
-				this.selecting = true;
 
 				(i.metaKey || i.ctrlKey);
 				var b = this.getBoundingClientRect();
