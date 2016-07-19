@@ -10,6 +10,7 @@
 		E41A76421D15D60D007EAC15 /* icon */ = {isa = PBXFileReference; lastKnownFileType = folder; path = icon; sourceTree = "<group>"; };
 		E41A76431D15D60D007EAC15 /* main.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = main.js; sourceTree = "<group>"; };
 		E41A76441D15D60D007EAC15 /* package.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = package.json; sourceTree = "<group>"; };
+		E42DA08D1D3DD24F001CF71D /* preview */ = {isa = PBXFileReference; lastKnownFileType = folder; name = preview; path = "panel/shader-graph/preview"; sourceTree = "<group>"; };
 		E47CC7F01D3C749B00CFDC6E /* menu */ = {isa = PBXFileReference; lastKnownFileType = folder; name = menu; path = "panel/shader-graph/menu"; sourceTree = "<group>"; };
 		E492EA6A1D2394BB00C72D34 /* widget */ = {isa = PBXFileReference; lastKnownFileType = folder; path = widget; sourceTree = "<group>"; };
 		E4CA7DEC1D39ED26002A4B4F /* editor */ = {isa = PBXFileReference; lastKnownFileType = folder; name = editor; path = "panel/shader-graph/editor"; sourceTree = "<group>"; };
@@ -45,6 +46,7 @@
 		E42640A61D2B818E0022702E /* shader-graph */ = {
 			isa = PBXGroup;
 			children = (
+				E42DA08D1D3DD24F001CF71D /* preview */,
 				E4CA7DEC1D39ED26002A4B4F /* editor */,
 				E47CC7F01D3C749B00CFDC6E /* menu */,
 			);

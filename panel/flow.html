@@ -28,13 +28,47 @@
 				</editor-button>
 			</div>
 		</editor-toolbar>
-		<cocos-preview id="preview"></cocos-preview>
-		<div id= "border" class= "border flex-1">
-			<flow-view id="flowView" class="fit graph-container" tabindex="-1"></flow-view>
-			<search-menu id="context-menu" activate-for-class="graph-container" class="context-menu"></search-menu>
-			<editor-loader id= "loader" mask text= "[[_T('SHARED.loading')]]"></editor-loader>
-			<div id= "dropArea" class= "fit" hidden on-dragover= "_onDragOver"></div>
+
+		<div style="
+			position:relative;
+			width:100%;
+			height:100%;
+			">
+			<div id="sidebar" style="
+				position:absolute;
+				left:0;
+				top:0;
+				width:200px;
+				height:200px;
+				">
+				<cocos-preview id="preview" style="width:200px; height:200px; overflow:none;"></cocos-preview>
+			</div>
+			<div id="bar" style="
+				position:absolute;
+				left:200px;
+				top: 50%;
+				width:0px;
+				height:30px;
+				transform: translateY(-50%);
+				margin-left:2px;
+				border-left:ridge 1px #777;
+				border-right:ridge 1px #333;
+				">
+			</div>
+			<div id= "border" class= "border flex-1" style="
+				position:absolute;
+				left:205px;
+				top:0;
+				right:0;
+				bottom:0;
+				">
+				<flow-view id="flowView" class="fit graph-container" tabindex="-1"></flow-view>
+				<search-menu id="context-menu" activate-for-class="graph-container" class="context-menu"></search-menu>
+				<editor-loader id= "loader" mask text= "[[_T('SHARED.loading')]]"></editor-loader>
+				<div id= "dropArea" class= "fit" hidden on-dragover= "_onDragOver"></div>
+			</div>
 		</div>
+
 		<editor-toolbar>
 			<div class= "path select">[[itemPath]]</div>
 		</editor-toolbar>
