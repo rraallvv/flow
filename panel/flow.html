@@ -46,21 +46,29 @@
 			<div id="bar" style="
 				position:absolute;
 				left:200px;
-				top: 50%;
-				width:0px;
-				height:30px;
-				transform: translateY(-50%);
-				margin-left:2px;
-				border-left:ridge 1px #777;
-				border-right:ridge 1px #333;
+				width:11px;
+				height:100%;
+				margin: 0 -3px;
+				cursor:col-resize;
+				z-index:2;
 				">
+				<div style="
+					position: absolute;
+					left:4px;
+					height:100%;
+					width:0px;
+					border-left:ridge 1px #333;
+					border-right:ridge 1px #606060;
+					">
+				</div>
 			</div>
 			<div id= "border" class= "border flex-1" style="
 				position:absolute;
-				left:205px;
+				left:200px;
 				top:0;
 				right:0;
 				bottom:0;
+				margin-left:3px;
 				">
 				<flow-view id="flowView" class="fit graph-container" tabindex="-1"></flow-view>
 				<search-menu id="context-menu" activate-for-class="graph-container" class="context-menu"></search-menu>
