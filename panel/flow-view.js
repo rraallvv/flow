@@ -3,6 +3,7 @@
 	Editor.polymerElement({
 		listeners: {
 			mousedown: "_onMouseDown",
+			mouseup: "_onMouseUp",
 			mousewheel: "_onMouseWheel",
 			mousemove: "_onMouseMove",
 			mouseleave: "_onMouseLeave",
@@ -162,9 +163,15 @@
 			})) : void 0;
 		},
 		_onMouseDown: function( i ) {
-			if (i.target.id === "canvas") {
-				this.selecting = true;
+			if (i.target.id !== "canvas" &&
+					i.target.id !== "graph" &&
+					i.target.id !== "svg") {
+				return;
 			}
+			this.selecting = true;
+		},
+		_onMouseUp: function( i ) {
+			this.selecting = false;
 		},
 		_onMouseWheel: function( i ) {
 			i.stopPropagation();
