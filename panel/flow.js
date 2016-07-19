@@ -8,7 +8,6 @@
 			droppable: "asset"
 		},
 		listeners: {
-			mousedown: "_onMouseDown",
 			"drop-area-enter": "_onDropAreaEnter",
 			"drop-area-leave": "_onDropAreaLeave",
 			"drop-area-accept": "_onDropAreaAccept",
@@ -199,6 +198,8 @@
 				placeholder.appendChild(element);
 			}
 			*/
+
+			this.$.resize.addEventListener("mousedown", this._onResizeHandle.bind( this ), !0 );
 		},
 		close: function() {
 			var e = this.confirmCloseScene();
@@ -323,7 +324,7 @@
 		_onAlignRight: function() {
 			_Scene.alignSelection("right");
 		},
-		_onMouseDown: function( i ) {
+		_onResizeHandle: function( i ) {
 			if (i.target.id !== "resize") {
 				return;
 			}
