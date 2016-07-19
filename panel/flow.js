@@ -106,6 +106,10 @@
 				menu.positionMenu(e);
 				return false;
 			};
+
+			shaderGraph.onConnectionStarted = function(e) {
+				menu.toggleMenuOff();
+			};
 			
 			//*
 			var demos = [
