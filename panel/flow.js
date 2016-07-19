@@ -8,6 +8,7 @@
 			droppable: "asset"
 		},
 		listeners: {
+			mousedown: "_onMouseDown",
 			"drop-area-enter": "_onDropAreaEnter",
 			"drop-area-leave": "_onDropAreaLeave",
 			"drop-area-accept": "_onDropAreaAccept",
@@ -321,6 +322,27 @@
 		},
 		_onAlignRight: function() {
 			_Scene.alignSelection("right");
+		},
+		_onMouseDown: function( i ) {
+			if (i.target.id !== "resize") {
+				return;
+			}
+			i.stopPropagation();
+			var e = this;
+			this.style.cursor = "col-resize";
+			Editor.UI.DomUtils.startDrag("col-resize", i, function( i, t, n ) {
+				var l = parseFloat(e.$.resize.style.left) + t;
+				var u = parseFloat(e.$.preview.style.height);
+				var v = e.offsetWidth - 3;
+				l = Editor.Math.clamp(l, u, v)
+				e.$.sidebar.style.width = l + "px";
+				e.$.resize.style.left = l + "px";
+				e.$.border.style.left = l + "px";
+				e.$.bar.style.display = "block";
+			}, function( i ) {
+				e.style.cursor = "";
+				e.$.bar.style.display = "none";
+			});
 		},
 		messages: {
 			"editor:dragstart": function() {
