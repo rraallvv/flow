@@ -1,5 +1,7 @@
 :host {
 	overflow: hidden;
+	background-color: #333;
+	box-shadow: inset 0 0 8px 2px rgba(0,0,0,0.2);
 }
 pre {
 	top: 5px;
