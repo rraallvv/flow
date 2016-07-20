@@ -97,7 +97,9 @@
 				prettyPrint();
 				*/
 
-				preview.updateShader(shaderDef);
+				if (preview) {
+					preview.updateShader(shaderDef);
+				}
 			};
 
 			shaderGraph.onConnectionReleased = function(e) {
