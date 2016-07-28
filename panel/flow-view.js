@@ -168,10 +168,14 @@
 					i.target.id !== "svg") {
 				return;
 			}
+			this.didDragSelectionRect = false;
 			this.selecting = true;
 		},
 		_onMouseUp: function( i ) {
 			this.selecting = false;
+			if (!this.didDragSelectionRect) {
+				this.$.graph.updateSelectRect();
+			}
 		},
 		_onMouseWheel: function( i ) {
 			i.stopPropagation();
@@ -210,6 +214,8 @@
 						0 > c && (h += c, c = -c);
 						0 > d && (l += d, d = -d);
 						this.$.gizmosView.updateSelectRect( h, l, c, d );
+						this.$.graph.updateSelectRect( h, l, c, d );
+						this.didDragSelectionRect = true;
 					}
 				}.bind( this ), function( i, s, r, c, d ) {
 					var a = c * c + d * d;
