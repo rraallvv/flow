@@ -84,6 +84,7 @@
 				this.$.grid.repaint();
 				this.$.graph.resize(i.width, i.height);
 				this.$.gizmosView.resize();
+				this.zoomAll();
 			}
 		},
 		_initEngine: function( i ) {
@@ -149,14 +150,15 @@
 			}
 			var e = this;
 			return 3 === i.which || 2 === i.which || this.movingGraph ? (i.stopPropagation(), this.style.cursor = "-webkit-grabbing", void Editor.UI.DomUtils.startDrag("-webkit-grabbing", i, function( i, t, n ) {
-				e.$.grid.pan( t, n ), e.$.grid.repaint();
+				e.$.grid.pan( t, n );
+				e.$.grid.repaint();
 
 				var s = e.$.grid.xAxisScale;
 				var r = e.$.grid.yAxisScale;
-				var n = e.$.grid.xDirection * e.$.grid.xAxisOffset;
-				var t = e.$.grid.yDirection * e.$.grid.yAxisOffset;
+				var t = e.$.grid.xDirection * e.$.grid.xAxisOffset;
+				var n = e.$.grid.yDirection * e.$.grid.yAxisOffset;
 
-				e.$.graph.setTransform( s, r, n, t );
+				e.$.graph.setTransform( s, r, t, n );
 
 			}, function( i ) {
 				i.shiftKey ? e.style.cursor = "-webkit-grab" : e.style.cursor = "";
@@ -192,10 +194,10 @@
 
 			var s = this.$.grid.xAxisScale;
 			var r = this.$.grid.yAxisScale;
-			var n = this.$.grid.xDirection * this.$.grid.xAxisOffset;
-			var t = this.$.grid.yDirection * this.$.grid.yAxisOffset;
+			var t = this.$.grid.xDirection * this.$.grid.xAxisOffset;
+			var n = this.$.grid.yDirection * this.$.grid.yAxisOffset;
 
-			this.$.graph.setTransform( s, r, n, t );
+			this.$.graph.setTransform( s, r, t, n );
 		},
 		_onMouseMove: function( i ) {
 			if (i.which === 1 && this.selecting) {
@@ -243,6 +245,59 @@
 		_onSaveEditMode: function() {
 		},
 		_onCloseEditMode: function() {
+		},
+		zoomAll: function() {
+			var left = Infinity;
+			var top = Infinity;
+			var right = -Infinity;
+			var bottom = -Infinity;
+
+			var nodes = this.$.graph.querySelectorAll("shader-node");
+
+			// Find the bounding rect
+			for(var i = 0; i < nodes.length; i++) {
+				var node = nodes[i];
+				if (node.offsetLeft < left) {
+					left = node.offsetLeft;
+				}
+				if (node.offsetTop < top) {
+					top = node.offsetTop;
+				}
+				if (node.offsetLeft + node.offsetWidth > right) {
+					right = node.offsetLeft + node.offsetWidth;
+				}
+				if (node.offsetTop + node.offsetHeight > bottom) {
+					bottom = node.offsetTop + node.offsetHeight;
+				}
+			}
+
+			var width = right - left;
+			var height = bottom - top;
+
+			// Fit the scale to enclose the bounding rect
+			var scaleW = this.$.graph.offsetWidth / width;
+			var scaleH = this.$.graph.offsetHeight / height;
+
+			var scale = Math.min(scaleW, scaleH);
+			scale = Math.min(scale, 1);
+
+			// Find the offset to place the view center on the center on the center of the bounding rect
+			var dx = -left * scale;
+			if (width * scale !== this.$.graph.offsetWidth) {
+				dx += 0.5 * (this.$.graph.offsetWidth - scale * width);
+			}
+
+			var dy = -top * scale;
+			if (height * scale !== this.$.graph.offsetHeight) {
+				dy += 0.5 * (this.$.graph.offsetHeight - scale * height);
+			}
+
+			// Apply the transform
+			this.$.grid.xAxisSync( dx, scale );
+			this.$.grid.yAxisSync( dy, scale );
+			this.$.grid.repaint();
+			this.$.gizmosView.scale = scale;
+			this.$.graph.setTransform(scale, scale, dx, dy);
 		}
 	});
 })();
