@@ -178,10 +178,7 @@
 			this.didDragSelectionRect = false;
 			this.selecting = true;
 			var e = this;
-			if (3 === i.which || 2 === i.which) {
-				return true;
-			}
-			if (this.movingGraph) {
+			if (i.which === 3 || this.movingGraph) {
 				i.stopPropagation();
 				this.style.cursor = "-webkit-grabbing";
 				Editor.UI.DomUtils.startDrag("-webkit-grabbing", i, function( i, t, n ) {
