@@ -27,7 +27,12 @@
 		ready: function() {
 			var i = [ 0, 1, 1 ],
 				e = [ 0, 1, 1 ];
-			this.$.grid.setScaleH([ 5, 2 ], 100, 1000), this.$.grid.setMappingH( i[ 0 ], i[ 1 ], i[ 2 ] ), this.$.grid.setScaleV([ 5, 2 ], 100, 1000), this.$.grid.setMappingV( e[ 0 ], e[ 1 ], e[ 2 ] ), this.$.grid.setAnchor( .5, .5 ), this.addEventListener("mousedown", this._onCaptureMousedown.bind( this ), true ), this.$.editButtons.addEventListener("mousedown", function( i ) {
+			this.$.grid.setScaleH([ 5, 2 ], 100, 1000);
+			this.$.grid.setMappingH( i[ 0 ], i[ 1 ], i[ 2 ] );
+			this.$.grid.setScaleV([ 5, 2 ], 100, 1000);
+			this.$.grid.setMappingV( e[ 0 ], e[ 1 ], e[ 2 ] );
+			this.$.grid.setAnchor( .5, .5 );
+			this.$.editButtons.addEventListener("mousedown", function( i ) {
 				return i.stopPropagation();
 			});
 		},
@@ -41,9 +46,22 @@
 			var i = this;
 			this._initTimer = setInterval(function() {
 				var e = i.getBoundingClientRect();
-				0 === e.width && 0 === e.height || (clearInterval( i._initTimer ), cc.engine.isInitialized ? (i.fire("engine-ready"), i.fire("flow-view-ready"), i._resize()) : i._initEngine(function() {
-					i.$.gizmosView.sceneToPixel = i.sceneToPixel.bind( i ), i.$.gizmosView.worldToPixel = i.worldToPixel.bind( i ), i.$.gizmosView.pixelToScene = i.pixelToScene.bind( i ), i.$.gizmosView.pixelToWorld = i.pixelToWorld.bind( i ), i._resize();
-				}));
+				if (0 !== e.width || 0 !== e.height) {
+					clearInterval( i._initTimer );
+					if (cc.engine.isInitialized) {
+						i.fire("engine-ready");
+						i.fire("flow-view-ready");
+						i._resize();
+					} else {
+						i._initEngine(function() {
+							i.$.gizmosView.sceneToPixel = i.sceneToPixel.bind( i );
+							i.$.gizmosView.worldToPixel = i.worldToPixel.bind( i );
+							i.$.gizmosView.pixelToScene = i.pixelToScene.bind( i );
+							i.$.gizmosView.pixelToWorld = i.pixelToWorld.bind( i );
+							i._resize();
+						});
+					}
+				}
 
 				var s = i.$.grid.xAxisScale;
 				var r = i.$.grid.yAxisScale;
@@ -103,7 +121,8 @@
 					collisionMatrix: o[ "collision-matrix" ]
 				};
 			cc.engine.init( s, function() {
-				e.fire("engine-ready"), _Scene.initScene(function( t ) {
+				e.fire("engine-ready");
+				_Scene.initScene(function( t ) {
 					return t ? void e.fire("flow-view-init-error", t ) : (e.fire("flow-view-ready"), void(i && i()));
 				});
 			});
@@ -111,10 +130,16 @@
 		adjustToCenter: function( i, e ) {
 			var t, n, o, s;
 			if ( e ) {
-				o = e.width, s = e.height, t = e.x, n = e.y;
+				o = e.width;
+				s = e.height;
+				t = e.x;
+				n = e.y;
 			} else {
 				var r = cc.engine.getDesignResolutionSize();
-				o = r.width, s = r.height, t = 0, n = 0;
+				o = r.width;
+				s = r.height;
+				t = 0;
+				n = 0;
 			}
 			var c, d = this.getBoundingClientRect(),
 				a = d.width - 2 * i,
@@ -123,7 +148,9 @@
 				c = 1;
 			} else {
 				var l = Editor.Utils.fitSize( o, s, a, h );
-				c = l[ 0 ] < l[ 1 ] ? l[ 0 ] / o : l[ 1 ] / s, o = l[ 0 ], s = l[ 1 ];
+				c = l[ 0 ] < l[ 1 ] ? l[ 0 ] / o : l[ 1 ] / s;
+				o = l[ 0 ];
+				s = l[ 1 ];
 			}
 			this.initPosition( this.$.grid.xDirection * ((d.width - o) / 2 - t * c), this.$.grid.yDirection * ((d.height - s) / 2 - n * c), c );
 		},
@@ -142,28 +169,6 @@
 			var e = cc.director.getScene();
 			return cc.v2( e.convertToWorldSpaceAR( this.pixelToScene( i ) ) );
 		},
-		_onCaptureMousedown: function( i ) {
-			if (i.target.id !== "canvas" &&
-					i.target.id !== "graph" &&
-					i.target.id !== "svg") {
-				return;
-			}
-			var e = this;
-			return 3 === i.which || 2 === i.which || this.movingGraph ? (i.stopPropagation(), this.style.cursor = "-webkit-grabbing", void Editor.UI.DomUtils.startDrag("-webkit-grabbing", i, function( i, t, n ) {
-				e.$.grid.pan( t, n );
-				e.$.grid.repaint();
-
-				var s = e.$.grid.xAxisScale;
-				var r = e.$.grid.yAxisScale;
-				var t = e.$.grid.xDirection * e.$.grid.xAxisOffset;
-				var n = e.$.grid.yDirection * e.$.grid.yAxisOffset;
-
-				e.$.graph.setTransform( s, r, t, n );
-
-			}, function( i ) {
-				i.shiftKey ? e.style.cursor = "-webkit-grab" : e.style.cursor = "";
-			})) : void 0;
-		},
 		_onMouseDown: function( i ) {
 			if (i.target.id !== "canvas" &&
 					i.target.id !== "graph" &&
@@ -172,6 +177,28 @@
 			}
 			this.didDragSelectionRect = false;
 			this.selecting = true;
+			var e = this;
+			if (3 === i.which || 2 === i.which) {
+				return true;
+			}
+			if (this.movingGraph) {
+				i.stopPropagation();
+				this.style.cursor = "-webkit-grabbing";
+				Editor.UI.DomUtils.startDrag("-webkit-grabbing", i, function( i, t, n ) {
+					e.$.grid.pan( t, n );
+					e.$.grid.repaint();
+
+					var s = e.$.grid.xAxisScale;
+					var r = e.$.grid.yAxisScale;
+					var t = e.$.grid.xDirection * e.$.grid.xAxisOffset;
+					var n = e.$.grid.yDirection * e.$.grid.yAxisOffset;
+
+					e.$.graph.setTransform( s, r, t, n );
+
+				}, function( i ) {
+					i.shiftKey ? e.style.cursor = "-webkit-grab" : e.style.cursor = "";
+				});
+			}
 		},
 		_onMouseUp: function( i ) {
 			this.selecting = false;
@@ -244,7 +271,11 @@
 			}
 		},
 		_onKeyUp: function( i ) {
-			i.stopPropagation(), "space" === Editor.KeyCode( i.which ) && (this.style.cursor = "", this.movingGraph = !1);
+			i.stopPropagation();
+			if ("space" === Editor.KeyCode( i.which )) {
+				this.style.cursor = "";
+				this.movingGraph = false;
+			}
 		},
 		_inEditMode: function( i ) {
 			return "" !== i;
