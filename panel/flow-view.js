@@ -199,6 +199,11 @@
 		},
 		_onMouseUp: function( i ) {
 			this.selecting = false;
+			if (i.target.id !== "canvas" &&
+					i.target.id !== "graph" &&
+					i.target.id !== "svg") {
+				return;
+			}			
 			if (!this.didDragSelectionRect) {
 				this.$.graph.updateSelectRect();
 			}
