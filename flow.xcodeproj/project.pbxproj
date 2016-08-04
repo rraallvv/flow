@@ -14,6 +14,7 @@
 		E47CC7F01D3C749B00CFDC6E /* menu */ = {isa = PBXFileReference; lastKnownFileType = folder; name = menu; path = "panel/shader-graph/menu"; sourceTree = "<group>"; };
 		E492EA6A1D2394BB00C72D34 /* widget */ = {isa = PBXFileReference; lastKnownFileType = folder; path = widget; sourceTree = "<group>"; };
 		E4CA7DEC1D39ED26002A4B4F /* editor */ = {isa = PBXFileReference; lastKnownFileType = folder; name = editor; path = "panel/shader-graph/editor"; sourceTree = "<group>"; };
+		E4E09B791D53F9FF0078C1E0 /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; name = src; path = "panel/shader-graph/src"; sourceTree = "<group>"; };
 		E4EE05571D28B34A00964AFA /* flow-view.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; name = "flow-view.css"; path = "panel/flow-view.css"; sourceTree = "<group>"; };
 		E4EE05581D28B34A00964AFA /* flow-view.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = "flow-view.html"; path = "panel/flow-view.html"; sourceTree = "<group>"; };
 		E4EE05591D28B34A00964AFA /* flow-view.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = "flow-view.js"; path = "panel/flow-view.js"; sourceTree = "<group>"; };
@@ -49,6 +50,7 @@
 				E42DA08D1D3DD24F001CF71D /* preview */,
 				E4CA7DEC1D39ED26002A4B4F /* editor */,
 				E47CC7F01D3C749B00CFDC6E /* menu */,
+				E4E09B791D53F9FF0078C1E0 /* src */,
 			);
 			name = "shader-graph";
 			sourceTree = "<group>";
