@@ -143,7 +143,7 @@
 			};
 
 			menu.onToggleOff = function() {
-				shaderGraph.clearTempConnection();
+				shaderGraph.clearTempWire();
 			};
 			//*/
 
