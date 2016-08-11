@@ -181,7 +181,7 @@
 			if (i.which === 3 || this.movingGraph) {
 				i.stopPropagation();
 				this.style.cursor = "-webkit-grabbing";
-				Editor.UI.DomUtils.startDrag("-webkit-grabbing", i, function( i, t, n ) {
+				Editor.UI._DomUtils.startDrag("-webkit-grabbing", i, function( i, t, n ) {
 					e.$.grid.pan( t, n );
 					e.$.grid.repaint();
 
@@ -237,7 +237,7 @@
 				var n = i.clientX - b.left,
 					o = i.clientY - b.top;
 
-				Editor.UI.DomUtils.startDrag("default", i, function( i, s, r, c, d ) {
+				Editor.UI._DomUtils.startDrag("default", i, function( i, s, r, c, d ) {
 					var a = c * c + d * d;
 					if ( !(4 > a) ) {
 						var h = n,

@@ -380,7 +380,7 @@
 			i.stopPropagation();
 			var e = this;
 			this.style.cursor = "col-resize";
-			Editor.UI.DomUtils.startDrag("col-resize", i, function( i, t, n ) {
+			Editor.UI._DomUtils.startDrag("col-resize", i, function( i, t, n ) {
 				var l = parseFloat(e.$.resize.style.left) + t;
 				var u = parseFloat(e.$.preview.style.height);
 				var v = e.offsetWidth - 3;
