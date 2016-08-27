@@ -6,15 +6,22 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXContainerItemProxy section */
+		E49616611D725D8100F21586 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E496165D1D725D6300F21586 /* shader-graph.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = E457C6971CEB9E0E00BFBE0D;
+			remoteInfo = "shader-graph";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		E41A76421D15D60D007EAC15 /* icon */ = {isa = PBXFileReference; lastKnownFileType = folder; path = icon; sourceTree = "<group>"; };
 		E41A76431D15D60D007EAC15 /* main.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = main.js; sourceTree = "<group>"; };
 		E41A76441D15D60D007EAC15 /* package.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = package.json; sourceTree = "<group>"; };
-		E42DA08D1D3DD24F001CF71D /* preview */ = {isa = PBXFileReference; lastKnownFileType = folder; name = preview; path = "panel/shader-graph/preview"; sourceTree = "<group>"; };
-		E47CC7F01D3C749B00CFDC6E /* menu */ = {isa = PBXFileReference; lastKnownFileType = folder; name = menu; path = "panel/shader-graph/menu"; sourceTree = "<group>"; };
 		E492EA6A1D2394BB00C72D34 /* widget */ = {isa = PBXFileReference; lastKnownFileType = folder; path = widget; sourceTree = "<group>"; };
-		E4CA7DEC1D39ED26002A4B4F /* editor */ = {isa = PBXFileReference; lastKnownFileType = folder; name = editor; path = "panel/shader-graph/editor"; sourceTree = "<group>"; };
-		E4E09B791D53F9FF0078C1E0 /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; name = src; path = "panel/shader-graph/src"; sourceTree = "<group>"; };
+		E496165D1D725D6300F21586 /* shader-graph.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "shader-graph.xcodeproj"; path = "panel/shader-graph/shader-graph.xcodeproj"; sourceTree = "<group>"; };
 		E4EE05571D28B34A00964AFA /* flow-view.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; name = "flow-view.css"; path = "panel/flow-view.css"; sourceTree = "<group>"; };
 		E4EE05581D28B34A00964AFA /* flow-view.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = "flow-view.html"; path = "panel/flow-view.html"; sourceTree = "<group>"; };
 		E4EE05591D28B34A00964AFA /* flow-view.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = "flow-view.js"; path = "panel/flow-view.js"; sourceTree = "<group>"; };
@@ -44,17 +51,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
-		E42640A61D2B818E0022702E /* shader-graph */ = {
-			isa = PBXGroup;
-			children = (
-				E42DA08D1D3DD24F001CF71D /* preview */,
-				E4CA7DEC1D39ED26002A4B4F /* editor */,
-				E47CC7F01D3C749B00CFDC6E /* menu */,
-				E4E09B791D53F9FF0078C1E0 /* src */,
-			);
-			name = "shader-graph";
-			sourceTree = "<group>";
-		};
 		E457C6831CEB9D6D00BFBE0D = {
 			isa = PBXGroup;
 			children = (
@@ -66,10 +62,17 @@
 			);
 			sourceTree = "<group>";
 		};
+		E496165E1D725D6300F21586 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		E4EE05561D28B33800964AFA /* Panel */ = {
 			isa = PBXGroup;
 			children = (
-				E42640A61D2B818E0022702E /* shader-graph */,
+				E496165D1D725D6300F21586 /* shader-graph.xcodeproj */,
 				E4EE05691D28B37400964AFA /* flow-graph */,
 				E4EE055E1D28B34F00964AFA /* litegraph */,
 				E4EE05571D28B34A00964AFA /* flow-view.css */,
@@ -128,6 +131,7 @@
 			buildToolPath = npm;
 			buildWorkingDirectory = "$(SRCROOT)";
 			dependencies = (
+				E49616621D725D8100F21586 /* PBXTargetDependency */,
 			);
 			name = flow;
 			passBuildSettingsInEnvironment = 0;
@@ -155,12 +159,26 @@
 			);
 			mainGroup = E457C6831CEB9D6D00BFBE0D;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = E496165E1D725D6300F21586 /* Products */;
+					ProjectRef = E496165D1D725D6300F21586 /* shader-graph.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				E457C6971CEB9E0E00BFBE0D /* flow */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXTargetDependency section */
+		E49616621D725D8100F21586 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "shader-graph";
+			targetProxy = E49616611D725D8100F21586 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		E457C6881CEB9D6D00BFBE0D /* Debug */ = {
