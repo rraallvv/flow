@@ -4,6 +4,7 @@
 		n = require("fire-url");
 
 	var demos = [
+		// 0
 		{ name: "Color",
 			nodes: [
 				{type:"fragColor", pos:[650, 130]},
@@ -13,6 +14,7 @@
 				[1, 0]
 			]
 		},
+		// 1
 		{ name: "Pattern",
 			nodes: [
 				{type:"fragColor", pos:[650, 130]},
@@ -41,6 +43,7 @@
 				[9, 0]
 			]
 		},
+		// 2
 		{ name: "Black and White",
 			nodes: [
 				{type:"fragColor", pos:[660, 200]},
@@ -65,6 +68,12 @@
 				[5, 7.2],
 				[2.3, 7.3],
 				[7, 0]
+			]
+		},
+		// 3
+		{ name: "Color",
+			nodes: [
+				{id: 2, type:"position", pos:[650, 130]}
 			]
 		}
 	];
@@ -152,7 +161,7 @@
 				var nodeTypes = shaderGraph.nodeTypes();
 				menu.buildMenu(nodeTypes);
 
-				shaderGraph.loadGraph(demos[1]);
+				shaderGraph.loadGraph(demos[3]);
 				//shaderGraph.updateShader();
 			};
 
