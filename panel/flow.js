@@ -73,7 +73,7 @@
 		// 3
 		{ name: "Color",
 			nodes: [
-				{id: 2, type:"position", pos:[650, 130]}
+				{type:"position", pos:[650, 130]}
 			]
 		}
 	];
