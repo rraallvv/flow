@@ -161,7 +161,7 @@
 				var nodeTypes = shaderGraph.nodeTypes();
 				menu.buildMenu(nodeTypes);
 
-				shaderGraph.loadGraph(demos[3]);
+				shaderGraph.loadGraph(demos[1]);
 				//shaderGraph.updateShader();
 			};
 
@@ -402,6 +402,9 @@
 				e.style.cursor = "";
 				e.$.bar.style.display = "none";
 			});
+		},
+		_onGraphSelected: function(e) {
+			this.$.flowView._onGraphSelected(e);
 		},
 		messages: {
 			"editor:dragstart": function() {

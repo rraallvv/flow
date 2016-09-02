@@ -289,6 +289,9 @@
 		},
 		_onCloseEditMode: function() {
 		},
+		_onGraphSelected: function(e) {
+			this.$.graph._onGraphSelected(e);
+		},
 		zoomAll: function() {
 			var left = Infinity;
 			var top = Infinity;
